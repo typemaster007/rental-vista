@@ -1,0 +1,68 @@
+.custom-padding {
+  padding-top: 30vh;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+
+.responsive-search {
+  width: 75vw;
+  vertical-align: middle;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.responsive-title {
+  vertical-align: middle;
+  top: 35%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.responsive-title h2 {
+  color: #f0f8f0;
+  font-weight: bolder;
+}
+
+.responsive-title h4 {
+  color: #f0f8f0;
+  font-weight: bold;
+}
+
+
+@media only screen and (min-width: 450px) {
+  .custom-padding {
+    padding-left: 9vw;
+  }
+
+  .responsive-search {
+    width: 40vw;
+    position: absolute;
+    top: 62%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .responsive-search input{
+    height: 7vh;
+  }
+  
+  .responsive-title h2 {
+    color: #5A7199;
+    font-weight: bolder;
+  }
+  
+  .responsive-title h4 {
+    color: #343A40;
+    font-weight: bold;
+  }
+  
+  .responsive-title {
+    position: absolute;
+    top: 52%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+
