@@ -1,0 +1,22 @@
+.footer-root {
+  background-color: #1d8ba6;
+  color: #f0f8f0;
+  margin: 0px auto;
+  padding: 20px 0px 20px 0px;
+  position: relative;
+  width: 100%;
+}
+address {
+  font-size: 80%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #343A40;
+  text-decoration: none;
+  cursor: pointer;
+}

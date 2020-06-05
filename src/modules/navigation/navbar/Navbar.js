@@ -9,7 +9,7 @@ function NavigationBar() {
       collapseOnSelect
       expand="lg"
       variant="dark"
-      fixed="top"
+      sticky="top"
     >
       <Navbar.Brand href="#home">RentalVista</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
