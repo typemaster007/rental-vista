@@ -1,10 +1,9 @@
 import React from 'react'
-import SerachDivision from './components/SerachDivision'
-import './LandingPage.css'
+import SerachDivision from './presentation/SerachDivision'
 
 function LandingPage() {
     return (
-        <div className="landingPage">
+        <div>
             <SerachDivision />
         </div>
     )
