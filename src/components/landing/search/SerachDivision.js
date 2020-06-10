@@ -7,7 +7,7 @@ import "./SearchDivision.css";
 import logo from "../../../assets/images/logo.png";
 import illustration from "../../../assets/images/find-home-illustration-1.svg";
 
-import API from "../../../api/city";
+// import API from "../../../api/city";
 
 /* 
 ? Fill city detail
@@ -20,23 +20,23 @@ function SerachDivision() {
 
   const handleOnChange = (event) => {
     event.preventDefault();
-
-    // console.log(event.target.value);
-    // console.log(process.env.REACT_APP_GOOGLE_PLACE_API);
     
     setCity(event.target.value);
 
-    API.get("", {
-      params: {
-        key: process.env.REACT_APP_GOOGLE_PLACE_API,
-        type: "(cities)",
-        input: event.target.value,
-      },
-    }).then((response) => {
-      // handle success
-      console.log(response);
-    })
+    // API.get("", {
+    //   params: {
+    //     key: process.env.REACT_APP_GOOGLE_PLACE_API,
+    //     type: "(cities)",
+    //     input: event.target.value,
+    //     "sessiontoken":"1234567890"
+    //   },
+    // }).then((response) => {
+    //   // handle success
+    //   console.log(response);
+    // })
+    
     // console.log(event.target.value)
+
   };
 
   return (

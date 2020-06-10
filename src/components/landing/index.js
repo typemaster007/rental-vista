@@ -1,10 +1,12 @@
 import React from 'react'
-import SerachDivision from './presentation/SerachDivision'
+import SerachDivision from './search/SerachDivision'
+import DetailsDivision from './details/DetailsDivision'
 
 function LandingPage() {
     return (
         <div>
             <SerachDivision />
+            <DetailsDivision/>
         </div>
     )
 }

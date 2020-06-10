@@ -79,7 +79,7 @@
       -12px -12px 24px 0px rgba(255, 255, 255, 0.5);
     border-radius: 30px;
     border-bottom: 5px solid #f7a231;
-    background-color: #faebd7;
+    background-color: #f5f5f5;
   }
 
   .input-group {
@@ -98,7 +98,7 @@
   }
 
   .info-root:hover {
-    background-color: #faebd7;
+    background-color: #f5f5f5;
     box-shadow: 12px 12px 24px 10px rgba(0, 0, 0, 0.2),
       -12px -12px 24px 0px rgba(255, 255, 255, 0.5);
     border-radius: 30px;
