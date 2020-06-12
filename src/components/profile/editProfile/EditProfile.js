@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import { Image, Row, Col, Button, Form, Container } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import user from "../../../assets/images/user.svg";
 import "./EditProfile.css";
@@ -12,7 +12,7 @@ TODO: NEED TO SET LAYOUT FOR MD AND SM SCREEN
 const initialData = {
   name: "John Doe",
   email: "johndoe@jd.com",
-  contact: "+1 111-222-3345",
+  contact: "1112223345",
   question1: "Lake",
   question2: "Apartment",
   question3: "Yes",
@@ -20,8 +20,15 @@ const initialData = {
   question5: "Yes",
 };
 
+const initialError = {
+  nameError: "form-text-hide",
+  contactError: "form-text-hide"
+}
+
 function EditProfile() {
+
   const [userData, setUserData] = useState(initialData);
+  const [errorClass, setErrorClass] = useState(initialError);
 
   const handleOnChange = (data) => {
 
@@ -33,6 +40,24 @@ function EditProfile() {
     });
   };
 
+  useEffect(() => {
+    let error = {
+      nameError: "form-text-hide",
+      contactError: "form-text-hide",
+    }
+
+    if( userData.name.trim() === "")
+    {
+      error.nameError = ""
+    }
+    if(userData.contact.trim() === "" || userData.contact.length  !== 10 || isNaN(userData.contact) ){
+      error.contactError = ""
+    }
+
+    setErrorClass({...error})
+    
+  }, [userData.name, userData.contact])
+
   return (
     <Container>
       <Row>
@@ -43,7 +68,7 @@ function EditProfile() {
           md={{ offset: 2 }}
           lg={{ offset: 2 }}
         >
-          <Row className="justify-content-center">
+          <Row className="">
             <Image
               src={user}
               alt="Profile"
@@ -52,7 +77,7 @@ function EditProfile() {
             />
             <button className="btn m-2 btn-warning">Upload</button>
           </Row>
-          <Row className="justify-content-center mt-3">
+          <Row className=" mt-3">
             <Form.Group controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -61,9 +86,10 @@ function EditProfile() {
                 placeholder="Enter fullname"
                 onChange={(e) => handleOnChange({name: e.target.value})}
               />
+              <Form.Text className={errorClass.nameError}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Name!</Form.Text>
             </Form.Group>
           </Row>
-          <Row className="justify-content-center">
+          <Row className="">
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -74,7 +100,7 @@ function EditProfile() {
               />
             </Form.Group>
           </Row>
-          <Row className="justify-content-center">
+          <Row className="">
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Contact</Form.Label>
               <Form.Control
@@ -83,11 +109,15 @@ function EditProfile() {
                 placeholder="Contact No."
                 onChange={(e) => handleOnChange({contact: e.target.value})}
               />
+              <Form.Text className={errorClass.contactError}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Contact Detail!</Form.Text>
             </Form.Group>
           </Row>
-          <Row className="justify-content-center">
-            <Button variant="primary" type="submit">
+          <Row className="">
+            <Button variant="success" type="submit" style={{marginRight: "10vw"}}>
               Save
+            </Button>
+            <Button variant="secondary" type="submit">
+              Cancel
             </Button>
           </Row>
         </Col>
