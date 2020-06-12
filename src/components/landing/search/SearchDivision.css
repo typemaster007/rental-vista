@@ -30,6 +30,10 @@
     box-shadow: none;
   }
 
+  .btn:focus {
+    box-shadow: none;
+  }
+
   .info-root {
     border-radius: 15px;
     padding-top: 10vh;
@@ -67,6 +71,10 @@
     padding-bottom: 10vh;
     margin-top: 0.5vh;
     border-radius: 15px;
+  }
+  
+  .btn:focus {
+    box-shadow: none;
   }
 
   .search-root h4 {
