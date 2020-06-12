@@ -6,15 +6,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./components/landing/index";
 import NavigationBar from "./components/navigation/navbar/Navbar";
 import Footer from "./components/navigation/footer/Footer";
+import EditProfile from "./components/profile/index";
 
 function App() {
-  console.log(process.env.REACT_APP_GOOGLE_PLACE_API)
   return (
     <div className="page-container">
       <Router>
         <NavigationBar />
         <Switch>
           <Route path="/" exact component={LandingPage} />
+          <Route path="/edit" exact component={EditProfile} />
         </Switch>
         <Footer />
       </Router>

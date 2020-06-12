@@ -1,0 +1,88 @@
+@media screen and (max-width: 740px) {
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background: #4b79a1; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background: #4b79a1; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    padding-top: 8vh;
+  }
+}
+
+.sidebar a {
+  display: block;
+  color: #ffffffff;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #f7a231;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

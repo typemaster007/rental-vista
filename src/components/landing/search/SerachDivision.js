@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./SearchDivision.css";
 
-import logo from "../../../assets/images/logo.png";
-import illustration from "../../../assets/images/find-home-illustration-1.svg";
+import logo from "../../../assets/images/logo-dark.svg";
+import illustration from "../../../assets/images/find-home.svg";
 
 // import API from "../../../api/city";
 

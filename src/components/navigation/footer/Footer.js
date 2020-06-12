@@ -27,7 +27,7 @@ function Footer() {
             <ul className="list-unstyled">
               <li>
                 <FontAwesomeIcon icon="phone" className="icon-button" />{" "}
-                +1(123)-456-7890
+                +1 (123)-456-7890
               </li>
               <li>
               <a href="mailto:confusion@food.net">
