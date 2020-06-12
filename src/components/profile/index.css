@@ -47,19 +47,22 @@
 
 }
 
-.sidebar a {
+.sidebar button {
   display: block;
   color: #ffffffff;
+  background-color: #4b79a1;
+  border: none;
+  outline: none;
   padding: 16px;
   text-decoration: none;
 }
 
-.sidebar a.active {
+.sidebar button.active {
   background-color: #f7a231;
   color: white;
 }
 
-.sidebar a:hover:not(.active) {
+.sidebar button:hover:not(.active) {
   background-color: #555;
   color: white;
 }
@@ -71,13 +74,13 @@
     height: auto;
     position: relative;
   }
-  .sidebar a {
+  .sidebar button {
     float: left;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .sidebar a {
+  .sidebar button {
     text-align: center;
     float: none;
   }
