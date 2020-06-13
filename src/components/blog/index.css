@@ -1,0 +1,11 @@
+@media only screen and (max-width: 450px) {
+    .input-grooup {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .input-grooup {
+        width: 30vw;
+    }
+}

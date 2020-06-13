@@ -3,10 +3,11 @@ import "./utilities/FontAwesome";
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import LandingPage from "./components/landing/index";
 import NavigationBar from "./components/navigation/navbar/Navbar";
 import Footer from "./components/navigation/footer/Footer";
+import LandingPage from "./components/landing/index";
 import EditProfile from "./components/profile/index";
+import BlogPage from './components/blog/index';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <NavigationBar />
         <Switch>
           <Route path="/" exact component={LandingPage} />
+          <Route path="/blog" exact component={BlogPage} />
           <Route path="/edit" exact component={EditProfile} />
         </Switch>
         <Footer />

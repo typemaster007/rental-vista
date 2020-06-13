@@ -4,7 +4,8 @@ import {
   faPhone,
   faEnvelope,
   faChevronUp,
-  faExclamationCircle
+  faExclamationCircle,
+  faLongArrowAltRight
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSearch, faPhone, faEnvelope, faChevronUp, faExclamationCircle);
+library.add(faSearch, faPhone, faEnvelope, faChevronUp, faExclamationCircle, faLongArrowAltRight);

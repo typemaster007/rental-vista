@@ -7,8 +7,6 @@ import "./SearchDivision.css";
 import logo from "../../../assets/images/logo-dark.svg";
 import illustration from "../../../assets/images/find-home.svg";
 
-// import API from "../../../api/city";
-
 /* 
 ? Fill city detail
 * API: https://maps.googleapis.com/maps/api/place/autocomplete/json?input=Surat&key=AIzaSyA1SFifSfeA12NsLlJHVQRfK2Wa9iyTyNY&types=(cities)
