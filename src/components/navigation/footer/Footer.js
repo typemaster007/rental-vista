@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -10,7 +11,7 @@ function Footer() {
           <div className="col-12 col-sm-6 col-md-4 justify-content-center">
             <h5>RentalVista Inc.</h5>
             <ul className="list-unstyled">
-              <li>Blog</li>
+              <Link to="/blog"> <li>Blog</li> </Link>
               <li>About Us</li>
               <li>Developrs</li>
             </ul>

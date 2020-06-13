@@ -24,4 +24,7 @@
     border-radius: 5px;
   } 
 
+  * {
+    caret-color: #F7A231;
+  }
   
