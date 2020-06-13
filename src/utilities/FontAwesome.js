@@ -5,7 +5,22 @@ import {
   faEnvelope,
   faChevronUp,
   faExclamationCircle,
-  faLongArrowAltRight
+  faLongArrowAltRight,
+  faTimes,
+  faSlidersH,
+  faFilter,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faSearch, faPhone, faEnvelope, faChevronUp, faExclamationCircle, faLongArrowAltRight);
+library.add(
+  faSearch,
+  faPhone,
+  faEnvelope,
+  faChevronUp,
+  faExclamationCircle,
+  faLongArrowAltRight,
+  faTimes,
+  faSlidersH,
+  faFilter,
+  faStar
+);

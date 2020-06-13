@@ -8,6 +8,7 @@ import Footer from "./components/navigation/footer/Footer";
 import LandingPage from "./components/landing/index";
 import EditProfile from "./components/profile/index";
 import BlogPage from './components/blog/index';
+import HousePage from './components/house/index';
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
       <Router>
         <NavigationBar />
         <Switch>
-          <Route path="/" exact component={LandingPage} />
+          {/* <Route path="/" exact component={LandingPage} /> */}
           <Route path="/blog" exact component={BlogPage} />
           <Route path="/edit" exact component={EditProfile} />
+          <Route path="/" exact component={HousePage} />
         </Switch>
         <Footer />
       </Router>

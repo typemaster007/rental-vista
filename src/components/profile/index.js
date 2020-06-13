@@ -59,7 +59,6 @@ function ProfileManagement() {
       </div>
       <div className="container">
         {
-          // show &&
           message.title === "" ? (
             <EditProfile />
           ) : (
