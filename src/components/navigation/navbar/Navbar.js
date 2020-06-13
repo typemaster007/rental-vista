@@ -33,7 +33,7 @@ function NavigationBar() {
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <Nav.Link href="#feature1">Features</Nav.Link>
             <Nav.Link
               onClick={() =>
@@ -63,7 +63,7 @@ function NavigationBar() {
                 })
               }
             >
-              Join for Free
+              Sign up
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
