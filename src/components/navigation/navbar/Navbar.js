@@ -34,7 +34,8 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="/#feature1">Features</Nav.Link>
+            <Nav.Link href="/house">House</Nav.Link>
+            {/* <Nav.Link href="/#feature1">Features</Nav.Link> */}
             <Nav.Link
               onClick={() =>
                 renderComponent({

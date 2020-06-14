@@ -1,7 +1,7 @@
 import React from "react";
 import "./utilities/FontAwesome";
 import "./App.css"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import NavigationBar from "./components/navigation/navbar/Navbar";
 import Footer from "./components/navigation/footer/Footer";
@@ -9,6 +9,7 @@ import LandingPage from "./components/landing/index";
 import EditProfile from "./components/profile/index";
 import BlogPage from './components/blog/index';
 import HousePage from './components/house/index';
+import Page404 from './components/404/index';
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
           <Route path="/" exact component={LandingPage} />
           <Route path="/blog" exact component={BlogPage} />
           <Route path="/edit" exact component={EditProfile} />
-          <Route path="/home" exact component={HousePage} />
+          <Route path="/house" exact component={HousePage} />
+          <Route path='/404' component={Page404} />
+          <Redirect from='*' to='/404' />
         </Switch>
         <Footer />
       </Router>

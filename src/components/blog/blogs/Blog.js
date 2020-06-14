@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Card, Spinner, CardColumns } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+// import axios from "axios";
+import { Card, CardColumns } from "react-bootstrap";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import BlogData from './BlogData';
 
 function Blog(props) {
 
   // console.log(city)
-  const [articles, setArticles] = useState(BlogData);
+  // const [articles, setArticles] = useState(BlogData);
   // const [loading, setLoading] = useState(true);
 
   // const fetchData = (location) => {
@@ -101,7 +101,7 @@ function Blog(props) {
         </center>
       ) : ( */}
         <CardColumns className="container-fluid">
-          {articles.map((article, index) => {
+          {BlogData.map((article, index) => {
             return (
               <Card key={index}>
                 <Card.Img variant="top" src={article.image} />

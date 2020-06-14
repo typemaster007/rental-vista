@@ -4,6 +4,7 @@ import {
   Jumbotron,
   InputGroup,
   FormControl,
+  Form,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -12,8 +13,9 @@ import "./index.css";
 import Model from "../../utilities/TestModal";
 
 function BlogPage() {
+  
   const [email, setEmail] = useState("");
-
+  const [error, setErrorClass] = useState({display: "none"});
   const [showModel, setShowModel] = useState(false);
 
   const handleSubmitKey = (e) => {
@@ -29,7 +31,7 @@ function BlogPage() {
       setShowModel(showModel ? false : true);
     }
     else {
-      alert('Enter Valid Data!')
+      setErrorClass({})
     }
   };
 
@@ -52,6 +54,7 @@ function BlogPage() {
               <FontAwesomeIcon icon="envelope" color="#F7A231" size="lg"/>
             </InputGroup.Text>
           </InputGroup>
+          <Form.Text style={error}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Email!</Form.Text>
         </Container>
       </Jumbotron>
       <Blog city={""} />

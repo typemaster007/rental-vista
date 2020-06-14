@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Image, Row, Col, Button, Form, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import TestModal from '../../../utilities/TestModal'
+
 import user from "../../../assets/images/user.svg";
 import "./EditProfile.css";
-
-/*
-TODO: NEED TO SET LAYOUT FOR MD AND SM SCREEN
-*/
 
 const initialData = {
   name: "John Doe",
@@ -27,6 +25,8 @@ const initialError = {
 
 function EditProfile() {
 
+  const [show, setShow] = useState(false)
+  const [message, setMessage] = useState({})
   const [userData, setUserData] = useState(initialData);
   const [errorClass, setErrorClass] = useState(initialError);
 
@@ -39,6 +39,11 @@ function EditProfile() {
       ...data
     });
   };
+
+  const showModal = (msg) => {
+    setMessage(msg)
+    setShow(!show)
+  }
 
   useEffect(() => {
     let error = {
@@ -75,7 +80,7 @@ function EditProfile() {
               roundedCircle
               className="upload-image"
             />
-            <button className="btn m-2 btn-warning">Upload</button>
+            <button className="btn m-2 btn-warning" onClick={() => showModal({title: "Great!", body:"Profile Picture has been changed!", show:true})}>Upload</button>
           </Row>
           <Row className=" mt-3">
             <Form.Group controlId="formBasicName">
@@ -113,10 +118,10 @@ function EditProfile() {
             </Form.Group>
           </Row>
           <Row className="">
-            <Button variant="success" type="submit" style={{marginRight: "10vw"}}>
+            <Button variant="success" type="submit" style={{marginRight: "10vw"}} onClick={() => showModal({title: "Great!", body:"Data has been saved!", show:true})}>
               Save
             </Button>
-            <Button variant="secondary" type="submit">
+            <Button variant="secondary" type="submit" onClick={() => setUserData(initialData)}>
               Cancel
             </Button>
           </Row>
@@ -176,6 +181,9 @@ function EditProfile() {
           </Row>
         </Col>
       </Row>
+      {
+        show && <TestModal message={message} renderComponent={showModal}/>
+      }
     </Container>
   );
 }
