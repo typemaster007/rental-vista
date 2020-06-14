@@ -1,7 +1,7 @@
 # Rental Vista
     Assignment - 2
 
-    Date Created: 31 May 2020
+    Date Created: 3 Jun 2020
     Last Modification Date: 14 Jun 2020
 
 ## Author
