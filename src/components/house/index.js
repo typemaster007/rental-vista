@@ -3,6 +3,7 @@ import { Jumbotron, Row, Col, Form} from "react-bootstrap";
 
 import HouseList from "./list/HouseList";
 import HouseData from "./list/HouseData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const initialFilter = {
   min: 100,
@@ -14,15 +15,14 @@ const initialFilter = {
 function HousePage() {
   const [tempData, setTempData] = useState(initialFilter);
   const [houseData, setHouseData] = useState(HouseData);
+  const [error, setError] = useState({display: "none"});
 
   const handleFilter = () => {
     if(tempData.min > tempData.max || tempData.min < 0 || isNaN(tempData.min) || tempData.min === ""  || tempData.max === "" || tempData.max < 50 || tempData.max < 0 || isNaN(tempData.max))
      {
-       console.log('IN THERE')
-       alert('Enter Valid Data!')
+       setError({})
      }
      else {
-       console.log('IN HERE')
     let newData = HouseData.filter((house) => {
       if (house.rent >= tempData.min && house.rent <= tempData.max) {
         if (house.pet === tempData.pet) {
@@ -102,6 +102,7 @@ function HousePage() {
                 />
               </Col>
             </Row>
+              
           </Col>
           <Col sm={4} md={4} lg={3}>
             <Form.Label>Sort by</Form.Label>
@@ -138,6 +139,7 @@ function HousePage() {
             </button>
           </Col>
         </Row>
+        <Form.Text className="text-center" style={error}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Amount!</Form.Text>
       </Jumbotron>
       <HouseList houses={houseData} />
     </>

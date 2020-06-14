@@ -20,7 +20,7 @@ function ProfileManagement() {
 
   return (
     <div>
-      <div className="sidebar">
+      <div className="sidebar" style={{color:"#FFFFFF !important"}}>
         <button href="" onClick={() => handleOnClick(initialMessage)}>
           Edit Profile
         </button>

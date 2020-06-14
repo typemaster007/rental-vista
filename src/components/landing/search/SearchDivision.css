@@ -49,6 +49,7 @@
 }
 @media only screen and (min-width: 450px) {
   .container-fluid {
+    margin-bottom: 0px;
     padding: 0 5vw 0px 5vw;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -61,15 +62,17 @@
   .search-root {
     padding-left: 10vw;
     padding-top: 15vh;
+    margin-bottom: 0px;
     padding-bottom: 10vh;
     background-color: #f5f5f5;
     border-radius: 15px;
   }
   .info-root {
     padding-left: 10vw;
-    padding-top: 15vh;
+    padding-top: 10vh;
     padding-bottom: 10vh;
     margin-top: 0.5vh;
+    margin-bottom: 0px;
     border-radius: 15px;
   }
   

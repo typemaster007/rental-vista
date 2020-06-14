@@ -26,13 +26,13 @@ function DetailsDivision() {
           </span>
         </div>
       </div>
-      <div className="row" id={"feature2"}>
+      <div className="row">
         <div className="col-12 col-lg-6 illustration order-last order-sm-last order-md-last order-lg-last">
           <img src={budget} alt="Budget Problem" />
         </div>
-        <div className="col-12 col-lg-6 information order-first order-sm-first order-md-first order-lg-first">
+        <div className=" col-12 col-lg-6 information order-first order-sm-first order-md-first order-lg-first">
           <h3>Worried about budget?</h3>
-          <span>
+          <span className="">
             Occaecat eu non culpa incididunt. Cupidatat excepteur cupidatat
             dolor dolor in est enim officia. Non aliqua eu aliqua sint
             consectetur. Occaecat eu non culpa incididunt. Cupidatat excepteur
