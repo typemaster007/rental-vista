@@ -47,11 +47,21 @@ For deployment, I tried deploying using the Heroku dashboard in the previous pro
 
 ### Used Frameworks & Library
 
-For creating web application I have used **ReactJS** front-end libary that is created and open sourced by Facebook. In addition to this, I have used following libraries:
+For creating web application I have used **[ReactJS](https://reactjs.org/)** front-end libary that is created and open sourced by Facebook. In addition to this, I have used following libraries:
 
 1. [react-bootstrap](https://reacttraining.com/react-router/web/guides/quick-start) - CSS library (derived from bootstrap framework) used for better customization and responsiveness
 2. [react-router-dom](https://react-bootstrap.github.io/) - navigate between different pages of the website
 3. [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) - used for icons
+
+### Used Tools
+
+I have listed all the tools and platform used, from creating to the deployment process:
+
+1. [Visual Studio Code](https://code.visualstudio.com/) - to write and manage code.
+2. [Git](https://git-scm.com/) - for version control
+3. [Chrome](https://www.google.com/chrome/) & [Firefox](https://www.mozilla.org/en-US/firefox/new/) - debug and test application
+4. [Heroku](https://www.heroku.com/) - for deployment of website
+5. [Github](https://github.com/) - to house and maintain repository/project
 
 ### Choosing fonts and colours
 
