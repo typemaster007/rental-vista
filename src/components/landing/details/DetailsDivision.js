@@ -60,7 +60,7 @@ function DetailsDivision() {
           </span>
         </div>
       </div>
-      <div className="row">
+      <div className="row mb-3">
         <div className="col-12 col-lg-6 illustration order-last order-sm-last order-md-last order-lg-last">
           <img src={rent} alt="Rent a Room" />
         </div>

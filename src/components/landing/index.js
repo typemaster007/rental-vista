@@ -14,7 +14,7 @@ function LandingPage() {
     });
   };
   return (
-    <div>
+    <>
       <SerachDivision />
       <DetailsDivision />
       <div className="scrollToTop">
@@ -22,7 +22,7 @@ function LandingPage() {
           <FontAwesomeIcon icon="chevron-up" size="lg" color="#FFFFFF" />
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -17,12 +17,20 @@ function BlogPage() {
   const [showModel, setShowModel] = useState(false);
 
   const handleSubmitKey = (e) => {
+    if(e.keyCode === 13 || e.which === 13){
+      handleSubmitButton()
+    }
     setEmail(e.target.value);
   };
 
   const handleSubmitButton = () => {
-    setEmail("")
-    setShowModel(showModel ? false : true);
+    if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+      setEmail("")
+      setShowModel(showModel ? false : true);
+    }
+    else {
+      alert('Enter Valid Data!')
+    }
   };
 
   return (
@@ -38,6 +46,7 @@ function BlogPage() {
               aria-label="Email for subscribtion..."
               aria-describedby="email-subscription"
               onChange={handleSubmitKey}
+              onKeyUp={handleSubmitKey}
             />
             <InputGroup.Text id="email-subscription" onClick={handleSubmitButton}>
               <FontAwesomeIcon icon="envelope" color="#F7A231" size="lg"/>
