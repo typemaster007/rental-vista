@@ -11,7 +11,8 @@
 | --------------- | --------- | ---------------------- |
 | Sahil Fruitwala | B00844489 | sahil.fruitwala@dal.ca |
 
-## Demo Website Link: https://rentalvista.herokuapp.com/
+### Demo Website Link: https://rentalvista.herokuapp.com/
+### Github Repository Link: https://github.com/SahilFruitwala/rental-vista
 
 ### Demo
 
