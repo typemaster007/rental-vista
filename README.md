@@ -1,5 +1,4 @@
 # Rental Vista
-
     Assignment - 2
 
     Date Created: 31 May 2020
@@ -17,6 +16,8 @@
 ### Demo
 
 ![Website Demo](gif/website.gif)
+
+---
 
 ## Content
 
@@ -73,6 +74,8 @@ I have listed all the tools and platform used, from creating to the deployment p
 4. [Heroku](https://www.heroku.com/) - for deployment of website
 5. [Github](https://github.com/) - to house and maintain repository/project
 
+---
+
 ### Choosing fonts and colours
 
 According to Google Design [2], **Robot** font would be well applicable for long projects which in my case, is a web application. As per WebsiteBulderExpert[3] website, the main two colours on my website are for impulse shoppers which is suitable for my purpose.
@@ -87,6 +90,9 @@ To make an application compatible with Internet Explorer and Microsoft Edge, I h
 2. I have used some icons provided by [Font Awesome](https://fontawesome.com/start).
 3. [Placeholder](https://placeholder.com/) website saved my time by providing fixed-size images with colour options.
 4. The most helpful resource was [React-Bootstrap](https://react-bootstrap.github.io/) and [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) library and documentation. I have used some styles and code from Bootstrap[6] documentation and modify it for my purpose.
+5. For design inspiration, I have used [Dribbble](https://dribbble.com/) which is a website where designer showcase their designs [7].
+
+---
 
 ### References
 
@@ -95,4 +101,5 @@ To make an application compatible with Internet Explorer and Microsoft Edge, I h
 [3] "How to Choose Good Website Color Schemes (June 2020)", Website Builder Expert, 2020. [Online]. Available: https://www.websitebuilderexpert.com/designing-websites/how-to-choose-color-for-your-website/. [Accessed: 10- Jun- 2020].  
 [4] "Polyfill.io", Cdn.polyfill.io, 2020. [Online]. Available: https://cdn.polyfill.io/v3/. [Accessed: 14- Jun- 2020].  
 [5] "Create react app is not loaded (not working) in internet explorer 11 browser · Issue #7084 · facebook/create-react-app", GitHub, 2020. [Online]. Available: https://github.com/facebook/create-react-app/issues/7084. [Accessed: 14- Jun- 2020].  
-[6] "Introduction", Getbootstrap.com, 2020. [Online]. Available: https://getbootstrap.com/docs/4.5/getting-started/introduction/. [Accessed: 13- Jun- 2020].
+[6] "Introduction", Getbootstrap.com, 2020. [Online]. Available: https://getbootstrap.com/docs/4.5/getting-started/introduction/. [Accessed: 13- Jun- 2020].  
+[7] "Dribbble - Discover the World’s Top Designers & Creative Professionals", Dribbble.com, 2020. [Online]. Available: https://dribbble.com/. [Accessed: 10- Jun- 2020].
