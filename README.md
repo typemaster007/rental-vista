@@ -1,4 +1,5 @@
 # Rental Vista
+
     Assignment - 2
 
     Date Created: 3 Jun 2020
@@ -11,6 +12,7 @@
 | Sahil Fruitwala | B00844489 | sahil.fruitwala@dal.ca |
 
 ### Demo Website Link: https://rentalvista.herokuapp.com/
+
 ### Github Repository Link: https://github.com/SahilFruitwala/rental-vista
 
 ### Demo
@@ -55,6 +57,12 @@ I have created five pages and those can be accessed by method given below:
 ## Deployment
 
 For deployment, I tried deploying using the Heroku dashboard in the previous project but I could not do it. So, this time, I have used Heroku CLI for deployment using buildpack property as suggested by [Mark Hall](https://github.com/mars/create-react-app-buildpack)[1] in his Github repository which is also suggested method of the Heroku platform.
+
+To deploy and view application, I have used following commands:
+
+1. `heroku create rentalvista --buildpack mars/create-react-app`
+2. `git push heroku master`
+3. `heroku open`
 
 ### Used Frameworks & Library
 
