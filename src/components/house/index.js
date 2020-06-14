@@ -1,55 +1,147 @@
-import React from "react";
-import { Jumbotron, Row, Col, Form, Button } from "react-bootstrap";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import { Jumbotron, Row, Col, Form} from "react-bootstrap";
 
 import HouseList from "./list/HouseList";
+import HouseData from "./list/HouseData";
 
-function index() {
+const initialFilter = {
+  min: 100,
+  max: 2500,
+  sorting: "Any",
+  pet: false,
+};
+
+function HousePage() {
+  const [tempData, setTempData] = useState(initialFilter);
+  const [houseData, setHouseData] = useState(HouseData);
+
+  const handleFilter = () => {
+    if(tempData.min > tempData.max || tempData.min < 0 || isNaN(tempData.min) || tempData.min === ""  || tempData.max === "" || tempData.max < 50 || tempData.max < 0 || isNaN(tempData.max))
+     {
+       console.log('IN THERE')
+       alert('Enter Valid Data!')
+     }
+     else {
+       console.log('IN HERE')
+    let newData = HouseData.filter((house) => {
+      if (house.rent >= tempData.min && house.rent <= tempData.max) {
+        if (house.pet === tempData.pet) {
+          return true;
+        }
+      }
+      return false;
+    });
+
+    switch (tempData.sorting) {
+      case "one":
+        newData = newData.sort(
+          (a, b) => parseFloat(a.rent) - parseFloat(b.rent)
+        );
+        break;
+      case "two":
+        newData = newData.sort(
+          (a, b) => parseFloat(b.rent) - parseFloat(a.rent)
+        );
+        break;
+      case "three":
+        newData = newData.sort(
+          (a, b) => parseFloat(b.rating) - parseFloat(a.rating)
+        );
+        break;
+      case "four":
+        newData = newData.sort(
+          (a, b) => parseFloat(a.rating) - parseFloat(b.rating)
+        );
+        break;
+      default:
+        break;
+    }
+
+    // console.lo
+    setHouseData(newData);
+  }
+  };
+
+  const handleChnage = (data) => {
+    setTempData({
+      ...tempData,
+      ...data,
+    });
+  };
+
+
   return (
     <>
       <Jumbotron>
-        <h1>Aprtments in Toronto</h1>
-        <Row className="drawer">
+        <h1 className="text-center pb-2">Aprtments in Toronto</h1>
+        <Row className="drawer justify-content-center">
           <Col sm={4} md={4} lg={3}>
             <Row>
               <Col>
                 <Form.Label>Min Price</Form.Label>
-                <Form.Control type="number" value={""} />
+                <Form.Control
+                  type="number"
+                  value={tempData.min}
+                  onChange={(e) => {
+                    handleChnage({
+                      min: e.target.value,
+                    });
+                  }}
+                />
               </Col>
               <Col>
                 <Form.Label>Max Price</Form.Label>
-                <Form.Control type="number" value={""} />
+                <Form.Control
+                  type="number"
+                  value={tempData.max}
+                  onChange={(e) => {
+                    handleChnage({
+                      max: e.target.value,
+                    });
+                  }}
+                />
               </Col>
             </Row>
           </Col>
           <Col sm={4} md={4} lg={3}>
-            <Form.Label>Type of Renting Place</Form.Label>
-            <Form.Control as="select">
-              <option>Any</option>
-              <option>Apartment</option>
-              <option>House</option>
-            </Form.Control>
-          </Col>
-          <Col md={4} sm={4} lg={3}>
-            <Form.Label>Renting Type</Form.Label>
-            <Form.Control as="select">
-              <option>Any</option>
-              <option>Room Sharing</option>
-              <option>Whole Place</option>
+            <Form.Label>Sort by</Form.Label>
+            <Form.Control
+              as="select"
+              value={tempData.sorting}
+              onChange={(e) => {
+                handleChnage({ sorting: e.target.value });
+              }}
+            >
+              <option value="any">Any</option>
+              <option value="one">Price: Low to High</option>
+              <option value="two">Price: High to Low</option>
+              <option value="three">Rating: High to Low</option>
+              <option value="four">Rating: Low to High</option>
             </Form.Control>
           </Col>
           <Col md={2} sm={2} lg={1}>
             <Form.Label>Pet Allowed</Form.Label>
-            <Form.Check type="switch" id="custom-switch" label="Yes" />
+            <Form.Check
+              type="switch"
+              id="custom-switch"
+              label="Yes"
+              onChange={(e) => {
+                handleChnage({
+                  pet: e.target.value === "on" && !tempData.pet ? true : false,
+                });
+              }}
+            />
           </Col>
           <Col md={2} sm={2} lg={1}>
-            <Button type="submit">Apply</Button>
+            <button className="btn btn-info" onClick={handleFilter}>
+              Apply
+            </button>
           </Col>
         </Row>
       </Jumbotron>
-      <HouseList />
+      <HouseList houses={houseData} />
     </>
   );
 }
 
-export default index;
+export default HousePage;

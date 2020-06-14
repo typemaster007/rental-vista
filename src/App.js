@@ -16,10 +16,10 @@ function App() {
       <Router>
         <NavigationBar />
         <Switch>
-          {/* <Route path="/" exact component={LandingPage} /> */}
+          <Route path="/" exact component={LandingPage} />
           <Route path="/blog" exact component={BlogPage} />
           <Route path="/edit" exact component={EditProfile} />
-          <Route path="/" exact component={HousePage} />
+          <Route path="/home" exact component={HousePage} />
         </Switch>
         <Footer />
       </Router>
