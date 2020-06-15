@@ -137,7 +137,7 @@ library.add(
 );
 ```
 
-> **File:** [/scr/components/profile/index.js](/scr/components/profile/index.js) (line 22 - 69)
+> **File:** [/src/components/profile/index.js](/scr/components/profile/index.js) (line 22 - 69)
 
 The code below is original code, which I have taken from [[7]](https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp) website.
 
@@ -209,7 +209,7 @@ As I am new in web development, I am not vey well aware of how to create a sideb
     </div>
 ```
 
-> **File:** [/scr/components/profile/index.css](/scr/components/profile/index.css) (line 52 - 88)
+> **File:** [/src/components/profile/index.css](/scr/components/profile/index.css) (line 52 - 88)
 
 The below is taken from [[7]](https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp) website. I have used below style code and modify is according to my UI style and responsiveness.
 
