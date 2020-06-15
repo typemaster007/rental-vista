@@ -60,9 +60,9 @@ For deployment, I tried deploying using the Heroku dashboard in the previous pro
 
 To deploy and view application, I have used following commands:
 
-1. `heroku create rentalvista --buildpack mars/create-react-app`
-2. `git push heroku master`
-3. `heroku open`
+`heroku create rentalvista --buildpack mars/create-react-app`
+`git push heroku master`
+`heroku open`
 
 ### Used Frameworks & Library
 
@@ -92,13 +92,287 @@ According to Google Design [2], **Robot** font would be well applicable for long
 
 To make an application compatible with Internet Explorer and Microsoft Edge, I have used Polyfill[4] _CDN_ and _react-app-polyfill_ npm package which is suggested on GitHub issues for of **create-react-app** repository[5].
 
+### Sources Used
+
+> **File:** [/src/utilities/FontAwesome.js](/src/utilities/FontAwesome.js) (whole file)
+
+The below code is taken from [[6]](https://github.com/FortAwesome/react-fontawesome) website.
+
+```
+import ReactDOM from 'react-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faCheckSquare, faCoffee)
+```
+
+I have used above code but this is a standard code snippent how one can use _font-awesome_ icons in react application. Below is modified verson of original code.
+
+```import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faSearch,
+  faPhone,
+  faEnvelope,
+  faChevronUp,
+  faExclamationCircle,
+  faLongArrowAltRight,
+  faTimes,
+  faSlidersH,
+  faFilter,
+  faStar
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(
+  faSearch,
+  faPhone,
+  faEnvelope,
+  faChevronUp,
+  faExclamationCircle,
+  faLongArrowAltRight,
+  faTimes,
+  faSlidersH,
+  faFilter,
+  faStar
+);
+```
+
+> **File:** [/scr/components/profile/index.js](/scr/components/profile/index.js) (line 22 - 69)
+
+The code below is original code, which I have taken from [[7]](https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp) website.
+
+```
+ <!-- The sidebar -->
+<div class="sidebar">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
+
+<!-- Page content -->
+<div class="content">
+  ..
+</div>
+```
+
+As I am new in web development, I am not vey well aware of how to create a sidebar. Due to this reason I have to use the code above and modify it. Code below is modified version of this code snippet.
+
+```
+<div>
+      <div className="sidebar" style={{color:"#FFFFFF !important"}}>
+        <button href="" onClick={() => handleOnClick(initialMessage)}>
+          Edit Profile
+        </button>
+        <button
+          onClick={() =>
+            handleOnClick({
+              title: "Success!",
+              body: "Your Password has been changed",
+            })
+          }
+        >
+          Reset Password
+        </button>
+        <button
+          href=""
+          onClick={() =>
+            handleOnClick({
+              title: "No Saved Rooms!",
+              body: "Currently, you do not have any saved rooms!",
+            })
+          }
+        >
+          Saved Rooms
+        </button>
+        <button
+          href=""
+          onClick={() =>
+            handleOnClick({
+              title: "Sorry!",
+              body: "Currently, you do not have any contact request approved!",
+            })
+          }
+        >
+          Requested Contacts
+        </button>
+      </div>
+      <div className="container">
+        {
+          message.title === "" ? (
+            <EditProfile />
+          ) : (
+            <OtherPages message={message} />
+          )
+        }
+      </div>
+    </div>
+```
+
+> **File:** [/scr/components/profile/index.css](/scr/components/profile/index.css) (line 52 - 88)
+
+The below is taken from [[7]](https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp) website. I have used below style code and modify is according to my UI style and responsiveness.
+
+```
+ /* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+```
+
+The code below is modified version.
+
+```
+@media screen and (max-width: 740px) {
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background: #4b79a1; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .sidebar {
+    /* margin: 0;
+    padding: 0; */
+    width: 200px;
+    background: #4b79a1; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to bottom bottom,
+      #283e51,
+      #4b79a1
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    position: fixed;
+    height: 45vh;
+    overflow: auto;
+    padding-top: 5vh;
+    margin-top: 10vh;
+    color: #ffffffff;
+  }
+}
+
+.root {
+  color: #ffffff !important;
+}
+
+.sidebar button {
+  display: block;
+  color: #ffffffff;
+  background-color: #4b79a1;
+  border: none;
+  outline: none;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar button.active {
+  background-color: #f7a231;
+  color: white;
+}
+
+.sidebar button:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+@media screen and (max-width: 740px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar button {
+    float: left;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar button {
+    text-align: center;
+    float: none;
+  }
+}
+
+```
+
 ### Acknowledgement & Appreciations for sources I used
 
 1. All of the illustrations on the landing page are taken from the [Undraw](https://undraw.co/) website. Which has saved a lot of time by providing good customizable illustrations?
-2. I have used some icons provided by [Font Awesome](https://fontawesome.com/start).
-3. [Placeholder](https://placeholder.com/) website saved my time by providing fixed-size images with colour options.
-4. The most helpful resource was [React-Bootstrap](https://react-bootstrap.github.io/) and [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) library and documentation. I have used some styles and code from Bootstrap[6] documentation and modify it for my purpose.
-5. For design inspiration, I have used [Dribbble](https://dribbble.com/) which is a website where designer showcase their designs [7].
+2. I have used some icons provided by [Font Awesome](https://fontawesome.com/start) using [7] website.
+3. [Placeholder](https://placeholder.com/) website saved my time by providing fixed-size images with colour options [8].
+4. The most helpful resource was [React-Bootstrap](https://react-bootstrap.github.io/) and [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/) library and documentation. I have used some styles and code from Bootstrap [9] documentation and modify it for my purpose.
+5. For design inspiration, I have used [Dribbble](https://dribbble.com/) which is a website where designer showcase their designs [10].
 
 ---
 
@@ -109,5 +383,8 @@ To make an application compatible with Internet Explorer and Microsoft Edge, I h
 [3] "How to Choose Good Website Color Schemes (June 2020)", Website Builder Expert, 2020. [Online]. Available: https://www.websitebuilderexpert.com/designing-websites/how-to-choose-color-for-your-website/. [Accessed: 10- Jun- 2020].  
 [4] "Polyfill.io", Cdn.polyfill.io, 2020. [Online]. Available: https://cdn.polyfill.io/v3/. [Accessed: 14- Jun- 2020].  
 [5] "Create react app is not loaded (not working) in internet explorer 11 browser · Issue #7084 · facebook/create-react-app", GitHub, 2020. [Online]. Available: https://github.com/facebook/create-react-app/issues/7084. [Accessed: 14- Jun- 2020].  
-[6] "Introduction", Getbootstrap.com, 2020. [Online]. Available: https://getbootstrap.com/docs/4.5/getting-started/introduction/. [Accessed: 13- Jun- 2020].  
-[7] "Dribbble - Discover the World’s Top Designers & Creative Professionals", Dribbble.com, 2020. [Online]. Available: https://dribbble.com/. [Accessed: 10- Jun- 2020].
+[6] "FortAwesome/react-fontawesome", GitHub, 2020. [Online]. Available: https://github.com/FortAwesome/react-fontawesome. [Accessed: 10- Jun- 2020].  
+[7] "How To Create a Responsive Sidebar", W3schools.com, 2020. [Online]. Available: https://www.w3schools.com/howto/howto_css_sidebar_responsive.asp. [Accessed: 11- Jun- 2020].  
+[8] "Placeholder.com: Placeholder.com – The Free Image Placeholder Service Favoured By Designers", 2020. [Online]. Available: https://placeholder.com/. [Accessed: 13- Jun- 2020].  
+[9] "Introduction", Getbootstrap.com, 2020. [Online]. Available: https://getbootstrap.com/docs/4.5/getting-started/introduction/. [Accessed: 13- Jun- 2020].  
+[10] "Dribbble - Discover the World’s Top Designers & Creative Professionals", Dribbble.com, 2020. [Online]. Available: https://dribbble.com/. [Accessed: 10- Jun- 2020].
