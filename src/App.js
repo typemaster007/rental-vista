@@ -18,8 +18,7 @@ function App() {
       <Router>
         <NavigationBar />
         <Switch>
-          {/* <Route path="/" exact component={LandingPage} /> */}
-          <Route path="/" exact component={AboutUsPage} />
+          <Route path="/" exact component={LandingPage} />
           <Route path="/blog" exact component={BlogPage} />
           <Route path="/edit" exact component={EditProfile} />
           <Route path="/house" exact component={HousePage} />
