@@ -37,12 +37,13 @@ function NavigationBar() {
             <Nav.Link href="/house">House</Nav.Link>
             {/* <Nav.Link href="/#feature1">Features</Nav.Link> */}
             <Nav.Link
-              onClick={() =>
-                renderComponent({
-                  title: "Pricing",
-                  body: "Pricings are coming soon!",
-                })
-              }
+              href="/payments"
+              //onClick={() =>
+               // renderComponent({
+               //   title: "Pricing",
+              //  body: "Pricings are coming soon!",
+              //})
+              //}
             >
               Pricing
             </Nav.Link>
