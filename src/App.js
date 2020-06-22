@@ -24,7 +24,7 @@ function App() {
           <Route path="/blog" exact component={BlogPage} />
           <Route path="/edit" exact component={EditProfile} />
           <Route path="/house" exact component={HousePage} />
-          <Route path="/about" exact component={AboutUsPage} />
+          <Route path="/aboutus" exact component={AboutUsPage} />
           {/* <Route path="/contactus" exact component={AboutUsPage} /> */}
           <Route path="/login" exact component={LoginPage}/>
           <Route path="/payment" exact component={PaymentPage}/>
