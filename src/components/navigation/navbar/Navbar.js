@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logo-light.svg";
 import TestModal from "../../../utilities/TestModal";
@@ -39,10 +39,10 @@ function NavigationBar() {
           </Nav>
           <Nav>
             <Nav.Link href="/blog">Blog</Nav.Link>
-            <NavDropdown title="About" id="basic-nav-dropdown">
+            {/* <NavDropdown title="About" id="basic-nav-dropdown">
               <NavDropdown.Item href="/aboutus">About Us</NavDropdown.Item>
               <NavDropdown.Item href="/contactus">Contact Us</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link
               eventKey={2}
