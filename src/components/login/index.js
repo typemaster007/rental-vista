@@ -106,7 +106,7 @@ class Login extends Component {
                                 )}
                             </FormGroup>
 
-                            <Button className="btn-lg btn-dark btn-block">Login</Button>
+                            <Button className="btn-lg btn-success btn-block">Login</Button>
 
                             <div className="text-center pt-3">Or continue with your social account</div>
 
