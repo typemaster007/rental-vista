@@ -1,8 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { NavLink } from "react-router-dom";
-
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -12,15 +11,15 @@ function Footer() {
           <div className="col-12 col-sm-6 col-md-4 justify-content-center">
             <h5>RentalVista Inc.</h5>
             <ul className="list-unstyled">
-              <NavLink to="/blog"> <li>Blog</li> </NavLink>
-              <NavLink to="/aboutus"><li>About Us</li></NavLink>
+              <Link to="/blog"> <li>Blog</li> </Link>
+              <li>About Us</li>
               <li>Developrs</li>
             </ul>
           </div>
           <div className="col-12 col-sm-6 col-md-4 justify-content-center">
             <h5>More</h5>
             <ul className="list-unstyled">
-              <li>FAQ</li>
+              <Link to="/FAQ"><li>FAQ</li> </Link>
               <li>Privacy</li>
               <li>Terms of Services</li>
             </ul>

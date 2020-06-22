@@ -35,23 +35,33 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/house">House</Nav.Link>
-            <Nav.Link href="/payment">Payment</Nav.Link>
+            {/* <Nav.Link href="/#feature1">Features</Nav.Link> */}
+            <Nav.Link
+              onClick={() =>
+                renderComponent({
+                  title: "Pricing",
+                  body: "Pricings are coming soon!",
+                })
+              }
+            >
+              Pricing
+            </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="/blog">Blog</Nav.Link>
-            {/* <NavDropdown title="About" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/aboutus">About Us</NavDropdown.Item>
-              <NavDropdown.Item href="/contactus">Contact Us</NavDropdown.Item>
-            </NavDropdown> */}
-            <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/blog">Blog</Nav.Link>
+            <Nav.Link onClick={() =>
+                renderComponent({
+                  title: "Login Success",
+                  body: "Congratulations! You have been Logged In successfully. Click Below Icon to go to Edit Profile.",
+                })
+              }>Login</Nav.Link>
             <Nav.Link
               eventKey={2}
               className="custom-join"
               onClick={() =>
                 renderComponent({
                   title: "Signup Success",
-                  body:
-                    "Congratulations! You have been signup for an amazing service.",
+                  body: "Congratulations! You have been signup for an amazing service.",
                 })
               }
             >
