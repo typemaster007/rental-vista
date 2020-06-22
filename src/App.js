@@ -19,6 +19,7 @@ import Page404 from "./components/404/index";
 import AboutUsPage from "./components/about/index";
 import LoginPage from "./components/login/index";
 import PaymentPage from "./components/payment/index";
+import FAQPage from "./components/faq/FAQ";
 
 function App() {
   return (
@@ -32,7 +33,7 @@ function App() {
             <Route path="/edit" exact component={EditProfile} />
             <Route path="/house" exact component={HousePage} />
             <Route path="/aboutus" exact component={AboutUsPage} />
-            {/* <Route path="/contactus" exact component={AboutUsPage} /> */}
+            <Route path="/faq" exact component={FAQPage} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/payment" exact component={PaymentPage} />
             <Route path="/404" component={Page404} />

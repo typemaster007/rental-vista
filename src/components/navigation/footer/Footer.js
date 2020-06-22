@@ -20,7 +20,7 @@ function Footer() {
           <div className="col-12 col-sm-6 col-md-4 justify-content-center">
             <h5>More</h5>
             <ul className="list-unstyled">
-              <li>FAQ</li>
+            <NavLink to="/faq"><li>FAQ</li></NavLink>
               <li>Privacy</li>
               <li>Terms of Services</li>
             </ul>
