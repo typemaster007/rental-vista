@@ -8,21 +8,6 @@ const emailRegex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
-const formValid = ({ formErrors, ...rest }) => {
-    let valid = true;
-
-    // validate form errors being empty
-    Object.values(formErrors).forEach(val => {
-        val.length > 0 && (valid = false);
-    });
-
-    // validate the form was filled out
-    Object.values(rest).forEach(val => {
-        val === null && (valid = false);
-    });
-
-    return valid;
-};
 
 class Login extends Component {
     constructor(props) {
@@ -85,7 +70,7 @@ class Login extends Component {
                 <h1 className="web-title">
                     <span className="font-weight-bold">Login</span>
                 </h1>
-                <Form className="login-form col-lg-12" onSubmit={this.handleSubmit} noValidate>
+                <Form className="login-form" onSubmit={this.handleSubmit} noValidate>
 
                     <div className="card container">
                         <div className="card-body">
@@ -105,8 +90,7 @@ class Login extends Component {
                                     <span className="errorMessage">{formErrors.password}</span>
                                 )}
                             </FormGroup>
-
-                            <Button className="btn-lg btn-success btn-block">Login</Button>
+                            <Button className="btn-lg btn-dark btn-block" onClick={event =>  window.location.href='/edit'} >Login</Button>
 
                             <div className="text-center pt-3">Or continue with your social account</div>
 
