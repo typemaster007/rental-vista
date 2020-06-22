@@ -3,7 +3,6 @@ import React from "react";
 import CabinImage from "../../assets/images/about-us.svg";
 import UserImage from "../../assets/images/user.svg";
 import "./index.css";
-import { Image } from "react-bootstrap";
 
 function index() {
   return (

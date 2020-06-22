@@ -181,7 +181,7 @@ export default class Payment extends React.Component {
           <img className="img1" src={amex} alt="amex" /><img className="img1" src={master} alt="master" />
           <img className="img1" src={discover} alt="discover" />
         </div>
-        <div class="col-75" style={{ display: 'flex',display: "flex",justifyContent: "center",alignItems: "center"}}>
+        <div class="col-75" style={{ display: 'flex',justifyContent: "center",alignItems: "center"}}>
           <div class="container4" style={{float : 'left', paddingRight : '5px', display: 'flex'}}>
             <form onSubmit={this.handleSubmit} noValidate >
               <div class="row1" style={{ display: 'flex'}}>
