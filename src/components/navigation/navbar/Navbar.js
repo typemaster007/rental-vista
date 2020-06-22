@@ -50,12 +50,7 @@ function NavigationBar() {
           </Nav>
           <Nav>
           <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link onClick={() =>
-                renderComponent({
-                  title: "Login Success",
-                  body: "Congratulations! You have been Logged In successfully. Click Below Icon to go to Edit Profile.",
-                })
-              }>Login</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link
               eventKey={2}
               className="custom-join"
