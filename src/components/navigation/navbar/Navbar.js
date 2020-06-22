@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/images/logo-light.svg";
 import TestModal from "../../../utilities/TestModal";
@@ -35,21 +35,14 @@ function NavigationBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/house">House</Nav.Link>
-            {/* <Nav.Link href="/#feature1">Features</Nav.Link> */}
-            <Nav.Link
-              href="/payments"
-              //onClick={() =>
-               // renderComponent({
-               //   title: "Pricing",
-              //  body: "Pricings are coming soon!",
-              //})
-              //}
-            >
-              Pricing
-            </Nav.Link>
+            <Nav.Link href="/payment">Payment</Nav.Link>
           </Nav>
           <Nav>
-          <Nav.Link href="/blog">Blog</Nav.Link>
+            <Nav.Link href="/blog">Blog</Nav.Link>
+            <NavDropdown title="About" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/aboutus">About Us</NavDropdown.Item>
+              <NavDropdown.Item href="/contactus">Contact Us</NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link
               eventKey={2}
@@ -57,7 +50,8 @@ function NavigationBar() {
               onClick={() =>
                 renderComponent({
                   title: "Signup Success",
-                  body: "Congratulations! You have been signup for an amazing service.",
+                  body:
+                    "Congratulations! You have been signup for an amazing service.",
                 })
               }
             >

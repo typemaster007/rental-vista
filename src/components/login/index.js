@@ -8,6 +8,24 @@ const emailRegex = RegExp(
     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
+<<<<<<< HEAD
+=======
+// const formValid = ({ formErrors, ...rest }) => {
+//     let valid = true;
+
+//     // validate form errors being empty
+//     Object.values(formErrors).forEach(val => {
+//         val.length > 0 && (valid = false);
+//     });
+
+//     // validate the form was filled out
+//     Object.values(rest).forEach(val => {
+//         val === null && (valid = false);
+//     });
+
+//     return valid;
+// };
+>>>>>>> 4c99737a0a6f4396ce3fd0d515ef3364d15467d3
 
 class Login extends Component {
     constructor(props) {
