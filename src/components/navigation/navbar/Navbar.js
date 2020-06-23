@@ -9,7 +9,7 @@ import TestModal from "../../../utilities/TestModal";
  * TODO: https://reacttraining.com/react-router/web/guides/scroll-restoration
  */
 
-function NavigationBar() {
+function NavigationBar(props) {
   const [message, setMessage] = useState({ title: "", body: "", show: false });
 
   const renderComponent = (msg) => {
@@ -49,6 +49,7 @@ function NavigationBar() {
           </Nav>
           <Nav>
           <Nav.Link href="/blog">Blog</Nav.Link>
+          <Nav.Link href="/post">Add Post</Nav.Link>
             <Nav.Link onClick={() =>
                 renderComponent({
                   title: "Login Success",
@@ -58,12 +59,7 @@ function NavigationBar() {
             <Nav.Link
               eventKey={2}
               className="custom-join"
-              onClick={() =>
-                renderComponent({
-                  title: "Signup Success",
-                  body: "Congratulations! You have been signup for an amazing service.",
-                })
-              }
+              onClick={() => props.handleSignUpClick(true)}
             >
               Sign up
             </Nav.Link>
