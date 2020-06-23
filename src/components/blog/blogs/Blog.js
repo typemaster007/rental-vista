@@ -1,12 +1,11 @@
 import React from "react";
 // import axios from "axios";
-import { Card, CardColumns } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import BlogData from './BlogData';
+import BlogData from "./BlogData";
 
 function Blog(props) {
-
   // console.log(city)
   // const [articles, setArticles] = useState(BlogData);
   // const [loading, setLoading] = useState(true);
@@ -70,28 +69,62 @@ function Blog(props) {
   //       (error) => {
   //         console.log("IN ERROR");
   //         fetchData("");
-          // switch (error.code) {
-          //   case error.PERMISSION_DENIED:
-          //     console.log("User denied the request for Geolocation.");
-          //     break;
-          //   case error.POSITION_UNAVAILABLE:
-          //     console.log("Location information is unavailable.");
-          //     break;
-          //   case error.TIMEOUT:
-          //     console.log("The request to get user location timed out.");
-          //     break;
-          //   case error.UNKNOWN_ERROR:
-          //     console.log("An unknown error occurred.");
-          //     break;
-          //   default:
-          //     console.log("Some error occured.");
-          //     break;
-          // }
+  // switch (error.code) {
+  //   case error.PERMISSION_DENIED:
+  //     console.log("User denied the request for Geolocation.");
+  //     break;
+  //   case error.POSITION_UNAVAILABLE:
+  //     console.log("Location information is unavailable.");
+  //     break;
+  //   case error.TIMEOUT:
+  //     console.log("The request to get user location timed out.");
+  //     break;
+  //   case error.UNKNOWN_ERROR:
+  //     console.log("An unknown error occurred.");
+  //     break;
+  //   default:
+  //     console.log("Some error occured.");
+  //     break;
+  // }
   //       },
   //       { enableHighAccuracy: false }
   //     );
   //   }
   // }, [props.city]);
+
+  // return (
+  //   <>
+  //     {/* {loading ? (
+  //       <center className="m-5">
+  //         <Spinner animation="border" size="xxl" variant="warning" />{" "}
+  //       </center>
+  //     ) : ( */}
+  //     <CardColumns className="container-fluid">
+  //       {BlogData.map((article, index) => {
+  //         return (
+  //           <Card>
+  //             <Card.Img variant="top" src={article.image} />
+  //             <Card.Body>
+  //               <Card.Title>{article.title}</Card.Title>
+  //               <Card.Subtitle className="mb-2 text-muted">
+  //                 {article.author}
+  //               </Card.Subtitle>
+  //               <Card.Text>{article.description}</Card.Text>
+  //               {/* <Card.Link href={article.image} target="_blank">
+  //                   Read more{" "}
+  //                   <FontAwesomeIcon
+  //                     icon="long-arrow-alt-right"
+  //                     color="#F7A231"
+  //                   />
+  //                 </Card.Link> */}
+  //             </Card.Body>
+  //           </Card>
+  //         );
+  //       })}
+  //     </CardColumns>
+  //     {/* )} */}
+  //   </>
+  // );
 
   return (
     <>
@@ -100,29 +133,26 @@ function Blog(props) {
           <Spinner animation="border" size="xxl" variant="warning" />{" "}
         </center>
       ) : ( */}
-        <CardColumns className="container-fluid">
-          {BlogData.map((article, index) => {
-            return (
-              <Card key={index}>
-                <Card.Img variant="top" src={article.image} />
-                <Card.Body>
-                  <Card.Title>{article.title}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    {article.author}
-                  </Card.Subtitle>
-                  <Card.Text>{article.description}</Card.Text>
-                  {/* <Card.Link href={article.image} target="_blank">
-                    Read more{" "}
-                    <FontAwesomeIcon
-                      icon="long-arrow-alt-right"
-                      color="#F7A231"
-                    />
-                  </Card.Link> */}
-                </Card.Body>
-              </Card>
-            );
-          })}
-        </CardColumns>
+      <Row className="container-fluid">
+        {BlogData.map((article) => {
+          return (
+            <Card
+              className="col-lg-3 mb-5 ml-5 mr-auto"
+              style={{ border: "none" }}
+            >
+              <Card.Img variant="top" src={article.image} />
+              <Card.Body>
+                <Card.Title>{article.title}</Card.Title>
+                <Card.Text style={{ textAlign: "left" }}></Card.Text>
+                {article.description}
+              </Card.Body>
+              <Card.Footer style={{ textAlign: "right" }}>
+                <small className="mb-2 text-muted">{article.author}</small>
+              </Card.Footer>
+            </Card>
+          );
+        })}
+      </Row>
       {/* )} */}
     </>
   );

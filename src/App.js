@@ -22,6 +22,7 @@ import PaymentPage from "./components/payment/index";
 import FAQPage from "./components/faq/FAQ";
 import AddPost from "./components/post";
 import SignupPopup from "./components/signup/index";
+import ViewRoom from "./components/house/View_Room/ViewRoom";
 
 function App(props) {
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -33,13 +34,14 @@ function App(props) {
   return (
     <div className="page-container">
       <Router>
-      <NavigationBar handleSignUpClick={handleSignUpClick}/>
+        <NavigationBar handleSignUpClick={handleSignUpClick} />
         <ScrollToTop>
           <Switch>
             <Route path="/" exact component={LandingPage} />
             <Route path="/blog" exact component={BlogPage} />
             <Route path="/edit" exact component={EditProfile} />
             <Route path="/house" exact component={HousePage} />
+            <Route path="/view-room" component={ViewRoom} />
             <Route path="/aboutus" exact component={AboutUsPage} />
             <Route path="/faq" exact component={FAQPage} />
             <Route path="/login" exact component={LoginPage} />
