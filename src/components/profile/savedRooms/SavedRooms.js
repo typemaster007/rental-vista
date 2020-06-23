@@ -13,13 +13,13 @@ function SavedRooms() {
   };
   return (
       <>
-    <Row className="container">
+    <Row className="container-fluid">
         {
         SavedRoomsData.map((room) => {
           return (
             <Card
               key={room.id}
-              className="col-lg-4 mb-5 ml-5 mr-auto"
+              className="col-lg-4 mb-5 mr-auto"
               style={{ border: "none" }}
             >
               <Card.Img

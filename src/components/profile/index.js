@@ -23,7 +23,7 @@ function ProfileManagement() {
   return (
     <div>
       <div className="sidebar" style={{color:"#FFFFFF !important"}}>
-        <button href="" onClick={() => handleOnClick(initialMessage)}>
+        <button href="" onClick={() => setView('')}>
           Edit Profile
         </button>
         <button

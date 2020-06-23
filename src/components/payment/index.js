@@ -174,14 +174,14 @@ export default class Payment extends React.Component {
   render (){
     const {errors, formValid} = this.state;
       return (
-        <div class="row" style={{ display: 'flex'}}>
-        <div class="container" style={{marginLeft: '200px', background:'white', paddingTop: '15px'}}>
+        <div class="row">
+        <div class="container" style={{ background:'white', paddingTop: '15px'}}>
           <h2 style={{background:'white',display: "flex",justifyContent: "center",alignItems: "center", float: 'left', paddingTop:'10px'}}>Payment Page</h2>
-          <h4 style={{marginLeft: '200px', float: 'left', paddingTop: '15px'}}>Accepted Cards : &nbsp;&nbsp;&nbsp;</h4><img className="img1" src={visa} alt="visa" />
+          <h4 style={{ float: 'left', paddingTop: '15px'}}>Accepted Cards : &nbsp;&nbsp;&nbsp;</h4><img className="img1" src={visa} alt="visa" />
           <img className="img1" src={amex} alt="amex" /><img className="img1" src={master} alt="master" />
           <img className="img1" src={discover} alt="discover" />
         </div>
-        <div class="col-75" style={{ display: 'flex',justifyContent: "center",alignItems: "center"}}>
+        <div class="col-50" style={{ display: 'flex',justifyContent: "center",alignItems: "center"}}>
           <div class="container4" style={{float : 'left', paddingRight : '5px', display: 'flex'}}>
             <form onSubmit={this.handleSubmit} noValidate >
               <div class="row1" style={{ display: 'flex'}}>
