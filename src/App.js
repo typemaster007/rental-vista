@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./utilities/FontAwesome";
 import "./App.css";
 import {
@@ -20,8 +20,16 @@ import AboutUsPage from "./components/about/index";
 import LoginPage from "./components/login/index";
 import PaymentPage from "./components/payment/index";
 import FAQPage from "./components/faq/FAQ";
+import AddPost from "./components/post";
+import SignupPopup from "./components/signup/index";
 
-function App() {
+function App(props) {
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+
+  const handleSignUpClick = (bool) => {
+    setIsSignUpOpen(bool);
+    document.body.style.overflow = bool ? "hidden" : "scroll";
+  };
   return (
     <div className="page-container">
       <Router>
@@ -36,12 +44,18 @@ function App() {
             <Route path="/faq" exact component={FAQPage} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/payment" exact component={PaymentPage} />
+            <Route path="/post" exact component={AddPost} />
             <Route path="/404" component={Page404} />
             <Redirect from="*" to="/404" />
           </Switch>
         </ScrollToTop>
         <Footer />
       </Router>
+      {isSignUpOpen ? (
+        <SignupPopup handleSignUpClick={handleSignUpClick} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
