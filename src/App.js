@@ -33,7 +33,7 @@ function App(props) {
   return (
     <div className="page-container">
       <Router>
-        <NavigationBar />
+      <NavigationBar handleSignUpClick={handleSignUpClick}/>
         <ScrollToTop>
           <Switch>
             <Route path="/" exact component={LandingPage} />
