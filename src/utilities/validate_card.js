@@ -12,7 +12,7 @@ var acceptedCards = {
   export function validateCard(value) {
     // remove all non digit characters
     value = value.replace(/\D/g, '');
-    var sum = 0;
+    let sum = 0;
     var shouldDouble = false;
     // loop through values starting at the rightmost side
     for (var i = value.length - 1; i >= 0; i--) {
@@ -26,7 +26,7 @@ var acceptedCards = {
       shouldDouble = !shouldDouble;
     }
     
-    var valid = (sum % 10) === 0;
+    // var valid = (sum % 10) === 0;
     var accepted = false;
     
     // loop through the keys (visa, mastercard, amex, etc.)

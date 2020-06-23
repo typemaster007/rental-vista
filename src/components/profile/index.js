@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./index.css";
 import EditProfile from "./editProfile/EditProfile";
 import OtherPages from "./otherPages/OtherPages";
+import SavedRooms from "./savedRooms/SavedRooms";
 
 const initialMessage = {
   title: "",
@@ -10,6 +11,7 @@ const initialMessage = {
 };
 
 function ProfileManagement() {
+  const [view, setView] = useState("")
   const [message, setMessage] = useState(initialMessage);
 
   const handleOnClick = (msg) => {
@@ -21,15 +23,12 @@ function ProfileManagement() {
   return (
     <div>
       <div className="sidebar" style={{color:"#FFFFFF !important"}}>
-        <button href="" onClick={() => handleOnClick(initialMessage)}>
+        <button href="" onClick={() => setView('')}>
           Edit Profile
         </button>
         <button
           onClick={() =>
-            handleOnClick({
-              title: "Success!",
-              body: "Your Password has been changed",
-            })
+            setView('reset_password')
           }
         >
           Reset Password
@@ -37,10 +36,7 @@ function ProfileManagement() {
         <button
           href=""
           onClick={() =>
-            handleOnClick({
-              title: "No Saved Rooms!",
-              body: "Currently, you do not have any saved rooms!",
-            })
+            setView('saved_rooms')
           }
         >
           Saved Rooms
@@ -48,10 +44,7 @@ function ProfileManagement() {
         <button
           href=""
           onClick={() =>
-            handleOnClick({
-              title: "Sorry!",
-              body: "Currently, you do not have any contact request approved!",
-            })
+            setView('requested_contacts')
           }
         >
           Requested Contacts
@@ -59,10 +52,14 @@ function ProfileManagement() {
       </div>
       <div className="container">
         {
-          message.title === "" ? (
+          view === "" ? (
             <EditProfile />
+          ) : view === "reset_password" ? (
+            <OtherPages message={{title: 'Success!', body: 'Your Password has been changed!'}}/>
+          ) : view === "saved_rooms" ? (
+            <SavedRooms />
           ) : (
-            <OtherPages message={message} />
+            <OtherPages message={{title: 'Sorry!', body: 'Currently, you do not have any contact request approved!'}}/>
           )
         }
       </div>

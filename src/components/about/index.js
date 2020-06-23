@@ -3,9 +3,9 @@ import React from "react";
 import CabinImage from "../../assets/images/about-us.svg";
 import UserImage from "../../assets/images/user.svg";
 import "./index.css";
-import { Image } from "react-bootstrap";
 
-function index() {
+function About() {
+
   return (
     <>
       <div className="jumbotron text-center">
@@ -94,4 +94,4 @@ function index() {
   );
 }
 
-export default index;
+export default About;
