@@ -39,6 +39,7 @@ function NavigationBar(props) {
           </Nav>
           <Nav>
             <Nav.Link href="/blog">Blog</Nav.Link>
+            <Nav.Link href="/post">Add Post</Nav.Link>
             {/* <NavDropdown title="About" id="basic-nav-dropdown">
               <NavDropdown.Item href="/aboutus">About Us</NavDropdown.Item>
               <NavDropdown.Item href="/contactus">Contact Us</NavDropdown.Item>
@@ -47,14 +48,7 @@ function NavigationBar(props) {
             <Nav.Link
               eventKey={2}
               className="custom-join"
-              onClick={() =>
-                props.handleSignUpClick(true)}
-                // renderComponent({
-                //   title: "Signup Success",
-                //   body:
-                //     "Congratulations! You have been signup for an amazing service.",
-                // })
-              // }
+              onClick={() => props.handleSignUpClick(true)}
             >
               Sign up
             </Nav.Link>
