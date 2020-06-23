@@ -182,7 +182,7 @@ export default class Payment extends React.Component {
   render (){
     const {errors, formValid} = this.state;
       return (
-        <div class="row">
+        <div class="custom-row">
         <div class="container" style={{ background:'white', paddingTop: '15px'}}>
           <h2 style={{background:'white',display: "flex",justifyContent: "center",alignItems: "center", float: 'left', paddingTop:'10px'}}>Payment Page</h2>
           <h4 style={{ float: 'left', paddingTop: '15px'}}>Accepted Cards : &nbsp;&nbsp;&nbsp;</h4><img className="img1" src={visa} alt="visa" />
