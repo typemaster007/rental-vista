@@ -4,6 +4,7 @@ import "./index.css";
 import EditProfile from "./editProfile/EditProfile";
 import OtherPages from "./otherPages/OtherPages";
 import SavedRooms from "./savedRooms/SavedRooms";
+import RequestedContacts from "./requestedContacts/RequestedContacts";
 
 const initialMessage = {
   title: "",
@@ -59,7 +60,8 @@ function ProfileManagement() {
           ) : view === "saved_rooms" ? (
             <SavedRooms />
           ) : (
-            <OtherPages message={{title: 'Sorry!', body: 'Currently, you do not have any contact request approved!'}}/>
+            <RequestedContacts />
+            // <OtherPages message={{title: 'Sorry!', body: 'Currently, you do not have any contact request approved!'}}/>
           )
         }
       </div>

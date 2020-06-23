@@ -54,7 +54,7 @@ function SavedRooms() {
         <TestModal
           message={{
             title: "Success!",
-            body: "Room has been saved in your account!",
+            body: "Room has been unsaved from your account!",
             show: true
           }}
 
