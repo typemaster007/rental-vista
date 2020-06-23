@@ -1,38 +1,33 @@
 import React, { useState } from "react";
-// import axios from "axios";
-import { Card, Row, Button, Badge } from "react-bootstrap";
+import { Card, Row, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import TestModal from '../../../utilities/TestModal'
-import "./HouseList.css";
+import SavedRoomsData from './SavedRoomsData'
 
-function HouseList(props) {
-  const [display, setDisplay] = useState(false);
+function SavedRooms() {
+    const [display, setDisplay] = useState(false);
 
   const handleModal = (msg) => {
     setDisplay(!display);
   };
-
   return (
-    <>
-      <Row className="container-fluid">
-        { props.houses.length !== 0 ? 
-        props.houses.map((room) => {
+      <>
+    <Row className="container">
+        {
+        SavedRoomsData.map((room) => {
           return (
-            <Card key={room.id} className="col-lg-3 mb-5 ml-5 mr-auto" style={{ border: "none" }} >
-              <Card.Img variant="top" src={room.image} style={{ borderRadius: "10%" }} />
+            <Card
+              key={room.id}
+              className="col-lg-4 mb-5 ml-5 mr-auto"
+              style={{ border: "none" }}
+            >
+              <Card.Img
+                variant="top"
+                src={room.image}
+                style={{ borderRadius: "10%" }}
+              />
               <Card.Body>
-                {
-                room.promoted ? (
-                  <Card.Title>
-                    <Badge variant="danger">Promoted</Badge>
-                  </Card.Title>
-                ) : (
-                  <Badge>
-                    <strong></strong>
-                  </Badge>
-                )
-                }
                 <Card.Subtitle className="pt-2" style={{ color: "#696969" }}>
                   <Row>
                     <FontAwesomeIcon icon="star" color="#F7A231" />
@@ -46,18 +41,16 @@ function HouseList(props) {
                   <strong>${room.rent}</strong>/Month
                 </Card.Text>
                 <Button variant="warning" onClick={handleModal}>
-                  Save Room
+                  Unsave Room
                 </Button>
               </Card.Body>
             </Card>
           );
-        }) :(<center className="container m-5">
-            <h2><FontAwesomeIcon icon="exclamation-circle" color="#f7a231" size="2x"/> No Result found!
-                </h2>
-                </center>)
+        })
     }
-      </Row>
-      {display && (
+    </Row>
+    {
+        display && (
         <TestModal
           message={{
             title: "Success!",
@@ -68,8 +61,8 @@ function HouseList(props) {
           renderComponent={handleModal}
         />
       )}
-    </>
+      </>
   );
 }
 
-export default HouseList;
+export default SavedRooms;
