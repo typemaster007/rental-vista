@@ -55,6 +55,11 @@ function HouseList(props) {
                   <Button variant="warning" onClick={handleModal}>
                     Save Room
                   </Button>
+                  <a href="/view-room">
+                    <Button variant="warning" style={{ marginLeft: "2rem" }}>
+                      View Room
+                    </Button>
+                  </a>
                 </Card.Body>
               </Card>
             );
