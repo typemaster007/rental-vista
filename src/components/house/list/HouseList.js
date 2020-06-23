@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Card, Row, Button, Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import TestModal from '../../../utilities/TestModal'
+import TestModal from "../../../utilities/TestModal";
 import "./HouseList.css";
 
 function HouseList(props) {
@@ -16,62 +16,69 @@ function HouseList(props) {
   return (
     <>
       <Row className="container-fluid">
-        { props.houses.length !== 0 ? 
-        props.houses.map((room) => {
-          return (
-            <Card
-              key={room.id}
-              className="col-lg-3 mb-5 ml-5 mr-auto"
-              style={{ border: "none" }}
-            >
-              <Card.Img
-                variant="top"
-                src={room.image}
-                style={{ borderRadius: "10%" }}
-              />
-              <Card.Body>
-                {room.promoted ? (
-                  <Card.Title>
-                    <Badge variant="danger">Promoted</Badge>
-                  </Card.Title>
-                ) : (
-                  <Badge>
-                    <strong></strong>
-                  </Badge>
-                )}
-                <Card.Subtitle className="pt-2" style={{ color: "#696969" }}>
-                  <Row>
-                    {/* <Col> */}
-                    <FontAwesomeIcon icon="star" color="#F7A231" />
-                    {room.rating} / 5, Reviews: {room.reviews}
-                  </Row>
-                </Card.Subtitle>
-                <Card.Text className="justify-data pt-1">
-                  {room.description}
-                </Card.Text>
-                <Card.Text className="pt-1">
-                  <strong>${room.rent}</strong>/Month
-                </Card.Text>
-                <Button variant="warning" onClick={handleModal}>
-                  Save Room
-                </Button>
-              </Card.Body>
-            </Card>
-          );
-        }) :(<center className="container m-5">
-            <h2><FontAwesomeIcon icon="exclamation-circle" color="#f7a231" size="2x"/> No Result found!
-                </h2>
-                </center>)
-    }
+        {props.houses.length !== 0 ? (
+          props.houses.map((room) => {
+            return (
+              <Card
+                key={room.id}
+                className="col-lg-3 mb-5 ml-5 mr-auto"
+                style={{ border: "none" }}
+              >
+                <Card.Img
+                  variant="top"
+                  src={room.image}
+                  style={{ borderRadius: "10%" }}
+                />
+                <Card.Body>
+                  {room.promoted ? (
+                    <Card.Title>
+                      <Badge variant="danger">Promoted</Badge>
+                    </Card.Title>
+                  ) : (
+                    <Badge>
+                      <strong></strong>
+                    </Badge>
+                  )}
+                  <Card.Subtitle className="pt-2" style={{ color: "#696969" }}>
+                    <Row>
+                      {/* <Col> */}
+                      <FontAwesomeIcon icon="star" color="#F7A231" />
+                      {room.rating} / 5, Reviews: {room.reviews}
+                    </Row>
+                  </Card.Subtitle>
+                  <Card.Text className="justify-data pt-1">
+                    {room.description}
+                  </Card.Text>
+                  <Card.Text className="pt-1">
+                    <strong>${room.rent}</strong>/Month
+                  </Card.Text>
+                  <Button variant="warning" onClick={handleModal}>
+                    Save Room
+                  </Button>
+                </Card.Body>
+              </Card>
+            );
+          })
+        ) : (
+          <center className="container m-5">
+            <h2>
+              <FontAwesomeIcon
+                icon="exclamation-circle"
+                color="#f7a231"
+                size="2x"
+              />{" "}
+              No Result found!
+            </h2>
+          </center>
+        )}
       </Row>
       {display && (
         <TestModal
           message={{
             title: "Success!",
             body: "Room has been saved in your account!",
-            show: true
+            show: true,
           }}
-
           renderComponent={handleModal}
         />
       )}
