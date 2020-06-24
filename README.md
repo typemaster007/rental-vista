@@ -20,12 +20,6 @@
 
 ### Github Repository Link: https://github.com/SahilFruitwala/rental-vista
 
-### Demo
-
-![Website Demo](gif/website.gif)
-
----
-
 ## Content
 
 We have created 10 pages of the main feature and one 404 pages. The pages are Landing Page, User Profile Management pages, List posts, View room, Post room, Payment, Blogs, Wishlist, Request contact, Support pages. Moreover, when the user will try to access any URL which is not implemented yet, he/she will be redirected to the 404 page.
