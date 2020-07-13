@@ -6,11 +6,11 @@ import pymongo
 app = Flask(__name__)
 
 # Read Creadential File
-config = ConfigParser()
-config.read('config.ini')
+# config = ConfigParser()
+# config.read('config.ini')
 
-# Get Credentials
-client = pymongo.MongoClient()
+URL = 'mongodb://127.0.0.1:27017' # add db url
+client = pymongo.MongoClient(URL)
 db = client.Tutorial5
 # INTERVAL = config.get('DEFAULT', 'TimeIntervals', fallback=0.1)
 # AWS_ACCESS_KEY_ID = config.get('AWS', 'AWS_ACCESS_KEY_ID')
