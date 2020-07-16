@@ -38,9 +38,11 @@ function App(props) {
       ? setIsTokenExist(true)
       : setIsTokenExist(false);
   }, []);
-/* 
-  TODO: Check STATE OF TOKEN AND ASK USER TO LOGIN
-*/
+
+  /* 
+  TODO: logout was not working
+  TODO: ask Sneh why I need to reload every-time after login or logout to reflect navbar change
+  */
 
   return (
     <div className="page-container">
@@ -62,13 +64,13 @@ function App(props) {
             <Redirect from="*" to="/404" />
           </Switch>
         </ScrollToTop>
+            {isSignUpOpen ? (
+              <SignupPopup handleSignUpClick={handleSignUpClick} />
+            ) : (
+              ""
+            )}
         <Footer />
       </Router>
-      {isSignUpOpen ? (
-        <SignupPopup handleSignUpClick={handleSignUpClick} />
-      ) : (
-        ""
-      )}
     </div>
   );
 }

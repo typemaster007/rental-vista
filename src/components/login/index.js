@@ -1,12 +1,11 @@
 import React, { Component, useEffect } from "react";
-import loginInstance from "../../utilities/api.js";
 import "./index.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import {
-  FacebookLoginButton,
-  GoogleLoginButton,
-} from "react-social-login-buttons";
-import { Redirect } from "react-router-dom";
+import axios from "axios";
+// import {
+//   FacebookLoginButton,
+//   GoogleLoginButton,
+// } from "react-social-login-buttons";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -39,21 +38,33 @@ class Login extends Component {
     }
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = () => {
+    // e.preventDefault();
 
     const { email, password } = this.state;
 
     this.setState({ error: false });
 
     if (email != null && password != null) {
-
-      loginInstance.post({
-        data: {'email': this.state.email, 'password': this.state.password},
-      });
-      
+      axios
+        .post("http://localhost:8080/users/login", {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Request-Method": "POST",
+          },
+          data: { email: this.state.email, password: this.state.password },
+        })
+        .then((response) => {
+          // console.log(response.data);
+          // alert(response.data['token']);
+          localStorage.setItem('token', response.data['token'])
+        this.props.history.push('/house')
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } else {
-      alert("Please provide valid credentials.!");
+      alert("Please provide valid credentials!");
     }
   };
 
@@ -70,13 +81,13 @@ class Login extends Component {
         break;
       case "password":
         formErrors.password =
-          value.length < 6 ? "minimum 6 characaters required" : "";
+          value.length < 6 && "Minimum 6 Characters Required!";
         break;
       default:
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    this.setState({ formErrors, [name]: value });
   };
 
   render() {
@@ -88,10 +99,11 @@ class Login extends Component {
         <h1 className="web-title">
           <span className="font-weight-bold">Login</span>
         </h1>
-        <Form className="login-form" onSubmit={this.handleSubmit} noValidate>
+        {/* <Form className="login-form" onSubmit={this.handleSubmit} noValidate> */}
+        <div className="login-form">
           <div className="card container">
             <div className="card-body">
-              {/* Actual Login Form strats here*/}
+              {/* Actual Login Form starts here*/}
               <FormGroup>
                 <Label>Email</Label>
                 <Input
@@ -120,12 +132,12 @@ class Login extends Component {
                   name="password"
                 ></Input>
                 {formErrors.password.length > 0 && (
-                  <span className="errorMessage">{formErrors.password}</span>
+                  <span className="errorMessage pb-3">{formErrors.password}</span>
                 )}
               </FormGroup>
               <Button
                 className="btn-lg btn-dark btn-block"
-                onClick={(event) => (window.location.href = "/edit")}
+                onClick={this.handleSubmit}
               >
                 Login
               </Button>
@@ -136,7 +148,8 @@ class Login extends Component {
                             <GoogleLoginButton className="mt-3 mb-3" onClick={() => window.open('https://accounts.google.com/')} /> */}
             </div>
           </div>
-        </Form>
+          </div>
+        {/* </Form> */}
       </div>
     );
   }
