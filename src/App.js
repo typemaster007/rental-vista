@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./utilities/FontAwesome";
 import "./App.css";
 import {
@@ -26,11 +26,22 @@ import ViewRoom from "./components/house/View_Room/ViewRoom";
 
 function App(props) {
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isTokenExist, setIsTokenExist] = useState(false);
 
   const handleSignUpClick = (bool) => {
     setIsSignUpOpen(bool);
     document.body.style.overflow = bool ? "hidden" : "scroll";
   };
+
+  useEffect(() => {
+    localStorage.getItem("token")
+      ? setIsTokenExist(true)
+      : setIsTokenExist(false);
+  }, []);
+/* 
+  TODO: Check STATE OF TOKEN AND ASK USER TO LOGIN
+*/
+
   return (
     <div className="page-container">
       <Router>
@@ -41,7 +52,7 @@ function App(props) {
             <Route path="/blog" exact component={BlogPage} />
             <Route path="/edit" exact component={EditProfile} />
             <Route path="/house" exact component={HousePage} />
-            <Route path="/view-room" component={ViewRoom} />
+            <Route path="/view-room" exact component={ViewRoom} />
             <Route path="/aboutus" exact component={AboutUsPage} />
             <Route path="/faq" exact component={FAQPage} />
             <Route path="/login" exact component={LoginPage} />

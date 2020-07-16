@@ -41,6 +41,7 @@ function BlogPage() {
         <Container>
           <h1>Blog</h1>
           <p>Learn about new place, food and culture.</p>
+          
           <InputGroup className="mb-3">
             <FormControl
               value={email ? email : ""}
