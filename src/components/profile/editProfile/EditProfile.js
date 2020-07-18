@@ -64,7 +64,7 @@ function EditProfile() {
   }, [userData.name, userData.contact])
 
   return (
-    <Container>
+    <Container className="ml-5">
       <Row>
         <Col
           className="mb-3 personal-detail-col"
@@ -88,7 +88,7 @@ function EditProfile() {
               <Form.Control
                 value={userData.name}
                 type="name"
-                placeholder="Enter fullname"
+                placeholder="Enter Fullname"
                 onChange={(e) => handleOnChange({name: e.target.value})}
               />
               <Form.Text className={errorClass.nameError}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Name!</Form.Text>
@@ -118,7 +118,7 @@ function EditProfile() {
             </Form.Group>
           </Row>
           <Row className="">
-            <Button variant="success" type="submit" style={{marginRight: "10vw"}} onClick={() => showModal({title: "Great!", body:"Data has been saved!", show:true})}>
+            <Button variant="success" type="submit" style={{marginRight: "3vw"}} onClick={() => showModal({title: "Great!", body:"Data has been saved!", show:true})}>
               Save
             </Button>
             <Button variant="secondary" type="submit" onClick={() => setUserData(initialData)}>
@@ -133,7 +133,38 @@ function EditProfile() {
           lg={{ offset: 1 }}
         >
           <Row className="questions">
+          <Form.Group controlId="formBasicPassword">
+              <Form.Label>Current Password</Form.Label>
+              <Form.Control
+                value={userData.contact}
+                type="password"
+                placeholder="Enter Current Password."
+                onChange={(e) => handleOnChange({contact: e.target.value})}
+              />
+              <Form.Text className={errorClass.contactError}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Contact Detail!</Form.Text>
+            </Form.Group>
             <Form.Group controlId="formBasicPassword">
+              <Form.Label>New Password</Form.Label>
+              <Form.Control
+                value={userData.contact}
+                type="password"
+                placeholder="Enter New Password"
+                onChange={(e) => handleOnChange({contact: e.target.value})}
+              />
+              <Form.Text className={errorClass.contactError}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Contact Detail!</Form.Text>
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control
+                value={userData.contact}
+                type="password"
+                placeholder="Re-Enter Confirm Password"
+                onChange={(e) => handleOnChange({contact: e.target.value})}
+              />
+              <Form.Text className={errorClass.contactError}><FontAwesomeIcon icon="exclamation-circle" color="#ff0000" /> Enter Valid Contact Detail!</Form.Text>
+            </Form.Group>
+            </Row>
+            {/* <Form.Group controlId="formBasicPassword">
               <Form.Label>Near to which place you want house?</Form.Label>
               <Form.Control value={userData.question1} as="select">
                 <option>Lake</option>
@@ -144,7 +175,7 @@ function EditProfile() {
           </Row>
           <Row className="questions">
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>What do you prefere to rent a room?</Form.Label>
+              <Form.Label>What do you prefer to rent a room?</Form.Label>
               <Form.Control value={userData.question2} as="select">
                 <option>Apartment</option>
                 <option>House</option>
@@ -178,7 +209,7 @@ function EditProfile() {
                 <option>No</option>
               </Form.Control>
             </Form.Group>
-          </Row>
+          </Row> */}
         </Col>
       </Row>
       {

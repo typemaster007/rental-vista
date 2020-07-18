@@ -21,11 +21,11 @@ function ProfileManagement(props) {
     });
   };
 
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      props.history.push("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!localStorage.getItem("token")) {
+  //     props.history.push("/");
+  //   }
+  // }, []);
 
   return (
     <div>
