@@ -57,8 +57,8 @@ class Login extends Component {
         .then((response) => {
           // console.log(response.data);
           // alert(response.data['token']);
-          localStorage.setItem('token', response.data['token'])
-        this.props.history.push('/house')
+          localStorage.setItem("token", response.data["token"]);
+          this.props.history.push("/house");
         })
         .catch((error) => {
           console.log(error);
@@ -132,7 +132,9 @@ class Login extends Component {
                   name="password"
                 ></Input>
                 {formErrors.password.length > 0 && (
-                  <span className="errorMessage pb-3">{formErrors.password}</span>
+                  <span className="errorMessage pb-3">
+                    {formErrors.password}
+                  </span>
                 )}
               </FormGroup>
               <Button
@@ -148,7 +150,7 @@ class Login extends Component {
                             <GoogleLoginButton className="mt-3 mb-3" onClick={() => window.open('https://accounts.google.com/')} /> */}
             </div>
           </div>
-          </div>
+        </div>
         {/* </Form> */}
       </div>
     );

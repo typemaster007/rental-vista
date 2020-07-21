@@ -7,9 +7,11 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 
 import ScrollToTop from "./components/scrollToTop";
 import NavigationBar from "./components/navigation/navbar/Navbar";
+// import NavigationBarLogin from "./components/navigation/navbarlogin";
 import Footer from "./components/navigation/footer/Footer";
 import LandingPage from "./components/landing/index";
 import EditProfile from "./components/profile/index";
@@ -21,17 +23,17 @@ import LoginPage from "./components/login/index";
 import PaymentPage from "./components/payment/index";
 import FAQPage from "./components/faq/FAQ";
 import AddPost from "./components/post";
-import SignupPopup from "./components/signup/index";
+import SignupPage from "./components/signup/index";
 import ViewRoom from "./components/house/View_Room/ViewRoom";
 
 function App(props) {
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  // const [isSignUpOpen, setIsSignUpOpen] = useState(false);
   const [isTokenExist, setIsTokenExist] = useState(false);
 
-  const handleSignUpClick = (bool) => {
-    setIsSignUpOpen(bool);
-    document.body.style.overflow = bool ? "hidden" : "scroll";
-  };
+  // const handleSignUpClick = (bool) => {
+  //   setIsSignUpOpen(bool);
+  //   document.body.style.overflow = bool ? "hidden" : "scroll";
+  // };
 
   useEffect(() => {
     localStorage.getItem("token")
@@ -46,8 +48,12 @@ function App(props) {
 
   return (
     <div className="page-container">
-      <Router>
-        <NavigationBar handleSignUpClick={handleSignUpClick} />
+      <Router history={createBrowserHistory()}>
+        {/* {
+          isTokenExist?
+          <NavigationBar  />: */}
+          : <NavigationBar  />
+        {/* } */}
         <ScrollToTop>
           <Switch>
             <Route path="/" exact component={LandingPage} />
@@ -58,17 +64,13 @@ function App(props) {
             <Route path="/aboutus" exact component={AboutUsPage} />
             <Route path="/faq" exact component={FAQPage} />
             <Route path="/login" exact component={LoginPage} />
+            <Route path="/signup" exact component={SignupPage} />
             <Route path="/payment" exact component={PaymentPage} />
             <Route path="/post" exact component={AddPost} />
             <Route path="/404" component={Page404} />
             <Redirect from="*" to="/404" />
           </Switch>
         </ScrollToTop>
-            {isSignUpOpen ? (
-              <SignupPopup handleSignUpClick={handleSignUpClick} />
-            ) : (
-              ""
-            )}
         <Footer />
       </Router>
     </div>

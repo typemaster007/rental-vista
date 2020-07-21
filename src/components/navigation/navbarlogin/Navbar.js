@@ -64,7 +64,7 @@ function NavigationBar(props) {
           <Nav>
             <Nav.Link href="/blog">Blog</Nav.Link>
             <Nav.Link href="/post">Add Post</Nav.Link>
-            {!showEdit ? (
+            {/* {!showEdit ? (
               <>
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link
@@ -76,11 +76,11 @@ function NavigationBar(props) {
                 </Nav.Link>
               </>
             ) : (
-              <>
+              <> */}
                 <Nav.Link href="/edit">Profile</Nav.Link>
                 <Nav.Link onClick={() => logout(props)}>Log Out</Nav.Link>
-              </>
-            )}
+              {/* </>
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

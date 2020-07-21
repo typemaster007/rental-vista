@@ -1,5 +1,5 @@
 import React from "react";
-import Popup from "reactjs-popup";
+// import Popup from "reactjs-popup";
 import "./index.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
@@ -38,7 +38,7 @@ class SignupPopup extends React.Component {
     if (localStorage.getItem("token")) {
       // console.log('HERE')
       // this.props.history.push('/house')
-      this.setState({...this.state, redirect:true})
+      this.setState({ ...this.state, redirect: true });
       // return <Redirect to="/house"/>
     }
   }
@@ -67,18 +67,19 @@ class SignupPopup extends React.Component {
         },
       })
       .then((response) => {
-        console.log();
-        alert(response.data);
+        this.props.history.push("/login");
+        this.closeModal();
+        // res = true;
       })
       .catch((error) => {
         console.log(error);
+        // res = false
       });
   };
 
   validateForm = () => {
     const {
       nameValid,
-      usernameValid,
       emailValid,
       passwordValid,
       passwordConfirmValid,
@@ -157,7 +158,7 @@ class SignupPopup extends React.Component {
     } else if (!/\d/.test(password)) {
       passwordValid = false;
       errorMsg.password = "Password must contain a digit";
-    } else if (!/[!@#$%^&*]/.test(password)) {
+    } else if (!/[!@#$%^&*_]/.test(password)) {
       passwordValid = false;
       errorMsg.password = "Password must contain special character: !@#$%^&*";
     }
@@ -191,140 +192,116 @@ class SignupPopup extends React.Component {
   };
 
   render() {
-    if(this.state.redirect) 
-    {
-      return <Redirect to="/house"/>
+    if (this.state.redirect) {
+      return <Redirect to="/house" />;
     }
     return (
       <div>
-        <Popup
-          className="popup"
-          closeOnDocumentClick
-          open={this.state.open}
-          onClose={this.closeModal}
-        >
-          <a className="close" onClick={this.closeModal}>
-            &times;
-          </a>
-          <div className="container popup-container">
-            <div className="row">
-              <div className="col-lg-10 col-xl-9 mx-auto">
-                <div className="card card-signin flex-row mt-5 mb-5">
-                  <div className="card-body">
-                    <h2 className="text-center font-weight-bold">Register</h2>
-                    {/* <form className="form-signin" noValidate> */}
-                    <div>
-                      <div className="form-label-group">
-                        <input
-                          type="text"
-                          id="name"
-                          className="form-control"
-                          placeholder="Full Name"
-                          value={this.state.name}
-                          onFocus={(e) => this.updateName(e.target.value)}
-                          onChange={(e) => this.updateName(e.target.value)}
-                          required
-                          autoFocus
-                        />
-                        <label htmlFor="name">Full Name</label>
-                        <ValidationMessage
-                          valid={this.state.nameValid}
-                          message={this.state.errorMsg.name}
-                        />
-                      </div>
-                      {/* <div className="form-label-group">
-                            <input type="text" id="userName" className="form-control" placeholder="Username" 
-                            value={this.state.username} onFocus={(e) => this.updateUsername(e.target.value)} onChange={(e) => this.updateUsername(e.target.value)} required autoFocus/>
-                            <label for="userName">Username</label>
-                            < ValidationMessage valid={this.state.usernameValid} message={this.state.errorMsg.username} />
-                        </div> */}
-
-                      <div className="form-label-group">
-                        <input
-                          type="email"
-                          id="SignupEmail"
-                          className="form-control"
-                          placeholder="Email address"
-                          value={this.state.email}
-                          onFocus={(e) => this.updateEmail(e.target.value)}
-                          onChange={(e) => this.updateEmail(e.target.value)}
-                          required
-                        />
-                        <label htmlFor="SignupEmail">Email address</label>
-                        <ValidationMessage
-                          valid={this.state.emailValid}
-                          message={this.state.errorMsg.email}
-                        />
-                      </div>
-
-                      <div className="form-label-group">
-                        <input
-                          type="password"
-                          id="password"
-                          className="form-control"
-                          placeholder="Password"
-                          value={this.state.password}
-                          onFocus={(e) => this.updatePassword(e.target.value)}
-                          onChange={(e) => this.updatePassword(e.target.value)}
-                          required
-                        />
-                        <label htmlFor="password">Password</label>
-                        <ValidationMessage
-                          valid={this.state.passwordValid}
-                          message={this.state.errorMsg.password}
-                        />
-                      </div>
-
-                      <div className="form-label-group">
-                        <input
-                          type="password"
-                          id="password-confirmation"
-                          className="form-control"
-                          placeholder="Password"
-                          value={this.state.passwordConfirm}
-                          onFocus={(e) =>
-                            this.updatePasswordConfirm(e.target.value)
-                          }
-                          onChange={(e) =>
-                            this.updatePasswordConfirm(e.target.value)
-                          }
-                          required
-                        />
-                        <label htmlFor="password-confirmation">
-                          Confirm password
-                        </label>
-                        <ValidationMessage
-                          valid={this.state.passwordConfirmValid}
-                          message={this.state.errorMsg.passwordConfirm}
-                        />
-                      </div>
-
-                      <button
-                        className="btn btn-primary btn-block text-uppercase"
-                        style={{ backgroundColor: "#1d8ba6" }}
-                        disabled={!this.state.formValid}
-                        onClick={this.submitHandler}
-                      >
-                        Register
-                      </button>
-                      <a
-                        className="d-block text-center mt-2 small"
-                        href="/login"
-                      >
-                        Sign In
-                      </a>
-                      <hr className="my-4" />
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 col-xl-9 mx-auto my-auto">
+              <div className="card card-signin flex-row mt-5 mb-5">
+                <div className="card-body">
+                  <h2 className="text-center font-weight-bold">Register</h2>
+                  <div>
+                    <div className="form-label-group">
+                      <input
+                        type="text"
+                        id="name"
+                        className="form-control"
+                        placeholder="Full Name"
+                        value={this.state.name}
+                        onFocus={(e) => this.updateName(e.target.value)}
+                        onChange={(e) => this.updateName(e.target.value)}
+                        required
+                        autoFocus
+                      />
+                      <label htmlFor="name">Full Name</label>
+                      <ValidationMessage
+                        valid={this.state.nameValid}
+                        message={this.state.errorMsg.name}
+                      />
                     </div>
-                    {/* </form> */}
-                    <div className="mt-2 text-center">
-                      {this.checkIfFormValid()}
+                    <div className="form-label-group">
+                      <input
+                        type="email"
+                        id="SignupEmail"
+                        className="form-control"
+                        placeholder="Email address"
+                        value={this.state.email}
+                        onFocus={(e) => this.updateEmail(e.target.value)}
+                        onChange={(e) => this.updateEmail(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="SignupEmail">Email address</label>
+                      <ValidationMessage
+                        valid={this.state.emailValid}
+                        message={this.state.errorMsg.email}
+                      />
                     </div>
+                    <div className="form-label-group">
+                      <input
+                        type="password"
+                        id="password"
+                        className="form-control"
+                        placeholder="Password"
+                        value={this.state.password}
+                        onFocus={(e) => this.updatePassword(e.target.value)}
+                        onChange={(e) => this.updatePassword(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="password">Password</label>
+                      <ValidationMessage
+                        valid={this.state.passwordValid}
+                        message={this.state.errorMsg.password}
+                      />
+                    </div>
+
+                    <div className="form-label-group">
+                      <input
+                        type="password"
+                        id="password-confirmation"
+                        className="form-control"
+                        placeholder="Password"
+                        value={this.state.passwordConfirm}
+                        onFocus={(e) =>
+                          this.updatePasswordConfirm(e.target.value)
+                        }
+                        onChange={(e) =>
+                          this.updatePasswordConfirm(e.target.value)
+                        }
+                        required
+                      />
+                      <label htmlFor="password-confirmation">
+                        Confirm password
+                      </label>
+                      <ValidationMessage
+                        valid={this.state.passwordConfirmValid}
+                        message={this.state.errorMsg.passwordConfirm}
+                      />
+                    </div>
+
+                    <button
+                      className="btn btn-primary btn-block text-uppercase"
+                      style={{ backgroundColor: "#1d8ba6" }}
+                      disabled={!this.state.formValid}
+                      onClick={this.submitHandler}
+                    >
+                      Register
+                    </button>
+                    <a className="d-block text-center mt-2 small" href="/login">
+                      Sign In
+                    </a>
+                    <hr className="my-4" />
+                  </div>
+                  <div className="mt-2 text-center">
+                    {this.checkIfFormValid()}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </Popup>
+        </div>
       </div>
     );
   }

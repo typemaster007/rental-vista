@@ -6,26 +6,9 @@ import OtherPages from "./otherPages/OtherPages";
 import SavedRooms from "./savedRooms/SavedRooms";
 import RequestedContacts from "./requestedContacts/RequestedContacts";
 
-const initialMessage = {
-  title: "",
-  body: "",
-};
-
 function ProfileManagement(props) {
   const [view, setView] = useState("");
-  const [message, setMessage] = useState(initialMessage);
 
-  const handleOnClick = (msg) => {
-    setMessage({
-      ...msg,
-    });
-  };
-
-  // useEffect(() => {
-  //   if (!localStorage.getItem("token")) {
-  //     props.history.push("/");
-  //   }
-  // }, []);
 
   return (
     <div>
@@ -33,8 +16,8 @@ function ProfileManagement(props) {
         <button href="" onClick={() => setView("")}>
           Edit Profile
         </button>
-        <button onClick={() => setView("reset_password")}>
-          Reset Password
+        <button href="" onClick={() => setView("reset_password")}>
+          Change Password
         </button>
         <button href="" onClick={() => setView("saved_rooms")}>
           Saved Rooms
@@ -48,10 +31,6 @@ function ProfileManagement(props) {
           <EditProfile />
         ) : view === "reset_password" ? (
           <OtherPages
-            message={{
-              title: "Success!",
-              body: "Your Password has been changed!",
-            }}
           />
         ) : view === "saved_rooms" ? (
           <SavedRooms />
