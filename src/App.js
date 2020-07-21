@@ -26,8 +26,10 @@ import AddPost from "./components/post";
 import SignupPage from "./components/signup/index";
 import ViewRoom from "./components/house/View_Room/ViewRoom";
 
+
 function App(props) {
   // const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const history = createBrowserHistory();
   const [isTokenExist, setIsTokenExist] = useState(false);
 
   // const handleSignUpClick = (bool) => {
@@ -48,7 +50,7 @@ function App(props) {
 
   return (
     <div className="page-container">
-      <Router history={createBrowserHistory()}>
+      <Router history={history}>
         {/* {
           isTokenExist?
           <NavigationBar  />: */}

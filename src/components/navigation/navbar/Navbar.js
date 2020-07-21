@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Navbar, Nav } from "react-bootstrap";
-import { Redirect,withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import logo from "../../../assets/images/logo-light.svg";
 import TestModal from "../../../utilities/TestModal";
 import axios from "axios";
@@ -21,7 +21,7 @@ function NavigationBar(props) {
       show: message.show ? false : true,
     });
   };
-  
+
   const logout = (props) => {
     // !localStorage.getItem("token") && props.history.push("/");
     axios
@@ -42,7 +42,7 @@ function NavigationBar(props) {
         console.log(error);
       });
   };
-  
+
   return (
     <React.Fragment>
       <Navbar
@@ -67,11 +67,7 @@ function NavigationBar(props) {
             {!showEdit ? (
               <>
                 <Nav.Link href="/login">Login</Nav.Link>
-                <Nav.Link
-                  eventKey={2}
-                  className="custom-join"
-                  href="/signup"
-                >
+                <Nav.Link eventKey={2} className="custom-join" href="/signup">
                   Sign up
                 </Nav.Link>
               </>

@@ -5,7 +5,7 @@ import SerachDivision from "./search/SerachDivision";
 import DetailsDivision from "./details/DetailsDivision";
 import "./index.css";
 
-function LandingPage() {
+function LandingPage(props) {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
